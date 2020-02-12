@@ -3,34 +3,89 @@ let logo: string = [%raw "require('./assets/logo.jpeg')"];
 
 [@react.component]
 let make = () =>
-  <div
-    className="bg-indigo-900 flex flex-col h-screen justify-center items-center text-center">
-    <div>
-      <h1
-        className="text-5xl hover:text-green-500 text-white flex items-center">
-        {"Bodhish Thomas" |> str}
-      </h1>
+  <div>
+    <div
+      className="bg-indigo-900 flex flex-col h-screen justify-center items-center text-center">
+      <div>
+        <h1
+          className="text-5xl hover:text-green-500 text-white flex items-center">
+          {"Bodhish Thomas" |> str}
+        </h1>
+      </div>
+      <div>
+        {Data.socials()
+         |> Array.map(social =>
+              <a href={social |> Data.url} target="_blank">
+                <i
+                  className={
+                    "m-4 text-3xl text-white hover:text-green-500 fab fa-"
+                    ++ (social |> Data.icon)
+                  }
+                />
+              </a>
+            )
+         |> React.array}
+      </div>
     </div>
-    <div>
-      {Data.socials()
-       |> Array.map(social =>
-            <a href={social |> Data.url} target="_blank">
-              <i
-                className={
-                  "m-4 text-3xl text-white hover:text-green-500 fab fa-"
-                  ++ (social |> Data.icon)
-                }
-              />
-            </a>
-          )
-       |> React.array}
+    <div className="p-10 bg-gray-100">
+      <div className="text-center">
+        <h1 className="text-5xl text-indigo-900">
+          {"Products Built" |> str}
+        </h1>
+      </div>
+      <div className="flex flex-row justify-center items-center flex-wrap">
+        {Data.projects()
+         |> Array.map(project =>
+              <div className="flex p-2 justify-center items-center flex-wrap">
+                <div
+                  className="m-4 max-w-sm rounded overflow-hidden shadow-lg">
+                  <img
+                    className=" "
+                    src={project |> Data.projectImage}
+                    alt={project |> Data.projectTitle}
+                  />
+                  <div className="px-6 py-4">
+                    <div className="font-bold text-xl mb-2">
+                      {project |> Data.projectTitle |> str}
+                    </div>
+                    <p className="text-700 text-base">
+                      {project |> Data.projectDescription |> str}
+                    </p>
+                    <p>
+                      {project
+                       |> Data.projectLinks
+                       |> Array.map(link =>
+                            <a href={link |> Data.url} target="_blank">
+                              <i
+                                className={
+                                  "mt-4 ml-2 mr-2 text-4xl text-gray-500 hover:text-green-500 "
+                                  ++ (link |> Data.icon)
+                                }
+                              />
+                            </a>
+                          )
+                       |> React.array}
+                    </p>
+                  </div>
+                  <div className="px-6 py-4">
+                    {project
+                     |> Data.projectTags
+                     |> Array.map(tag =>
+                          <span
+                            className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-700 mr-2">
+                            {tag |> str}
+                          </span>
+                        )
+                     |> React.array}
+                  </div>
+                </div>
+              </div>
+            )
+         |> React.array}
+      </div>
     </div>
-    <div className="m-10 flex justify-center items-center">
-      <h1 className="text-5xl text-indigo-900 flex items-center">
-        {"Products Built" |> str}
-      </h1>
-    </div>
-  </div> /*   </p*/;
+  </div>;
+
 // <div className="flex flex-row justify-center items-center flex-wrap bg-white">
 //   <div className="flex p-2 justify-center items-center flex-wrap">
 //     <div className="m-4 max-w-sm rounded overflow-hidden shadow-lg">

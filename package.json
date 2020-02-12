@@ -21,6 +21,7 @@
   "license": "MIT",
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.12.1",
+    "@glennsl/bs-json": "^5.0.2",
     "postcss-flexbugs-fixes": "^4.1.0",
     "postcss-import": "^12.0.1",
     "postcss-preset-env": "^6.7.0",
