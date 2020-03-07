@@ -1,3 +1,45 @@
 {
-  "hey": "lala"
+  "name": "Bodhish Thomas",
+  "socialLinks": [
+    "https://github.com/bodhish",
+    "https://www.npmjs.com/~bodhish",
+    "https://play.google.com/store/apps/developer?id=Cresla+Infotech",
+    "https://twitter.com/bodhishthomas",
+    "https://www.linkedin.com/in/bodhish/",
+    "https://facebook.com/bodhishkaringattil",
+    "https://medium.com/@bodhish"
+  ],
+  "products": [
+    {
+      "title": "StopFaking",
+      "description": "A bot built on Facebook messenger platform that can help you identify fake news shared by others on Facebook",
+      "logo": "http://bodhish.in/assets/0100.jpg",
+      "tags": ["FacebookBot", "RubyOnRails"],
+      "links": ["https://github.com/bodhish", "https://m.me/stopfaking.in"]
+    },
+    {
+      "title": "Afterflood",
+      "description": "A verified crowd sourced data hub for after flood recovery. Built in 4 hrs to support 2018 Kerala Flood recovery which got 1M page visits in 4 days.",
+      "logo": "http://bodhish.in/assets/ayushma-logo.jpg",
+      "tags": ["Supported By Cloudflare Project Galileo"],
+      "links": [
+        "https://afterflood.in/",
+        "http://chat.afterflood.in/",
+        "https://info.afterflood.in/",
+        "https://github.com/afterflood/afterflood.in"
+      ]
+    },
+    {
+      "title": "Ayushma",
+      "description": "'AYUSHMA' your one touch Healthcare assistant is a digital platform which links the patients, doctors, hospitals, and insurance companies in a single go.",
+      "logo": "http://bodhish.in/assets/ayushma-logo-1.jpg",
+      "tags": ["RubyOnRails", "ReactNative"],
+      "links": [
+        "http://bodhish.in/Ayushma-website/",
+        "https://www.youtube.com/watch?v=zvV64D_qMko",
+        "https://www.youtube.com/watch?time_continue=5&v=0HamRsRgyLY"
+      ]
+    }
+  ],
+  "repositories": ["bodhish/rails-6-tailwind", "SVdotCO/pupilfirst"]
 }
