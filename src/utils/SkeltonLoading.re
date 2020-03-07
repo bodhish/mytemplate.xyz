@@ -1,7 +1,7 @@
 [%bs.raw {|require("./SkeletonLoading.css")|}];
 
 let card = () =>
-  <div className="skeleton-body-container pt-4 w-full mx-auto">
+  <div className="skeleton-body-container pt-4 px-2 w-full mx-auto">
     <div className="skeleton-body-wrapper px-3 lg:px-0">
       <div
         className="skeleton-placeholder__card px-5 py-6 bg-white rounded-lg shadow">
@@ -9,6 +9,12 @@ let card = () =>
           <div className="flex-1">
             <div
               className="skeleton-placeholder__line-sm w-5/6 skeleton-animate"
+            />
+            <div
+              className="skeleton-placeholder__line-sm mt-4 w-4/6 skeleton-animate"
+            />
+            <div
+              className="skeleton-placeholder__line-sm mt-4 w-4/6 skeleton-animate"
             />
             <div
               className="skeleton-placeholder__line-sm mt-4 w-4/6 skeleton-animate"
@@ -128,6 +134,15 @@ let image = () =>
   <div className="skeleton-body-container w-full pb-4 mx-auto">
     <div className="skeleton-body-wrapper mt-8 px-3 lg:px-0">
       <div className="skeleton-placeholder__image mt-5 skeleton-animate" />
+      <div
+        className="skeleton-placeholder__line-sm mx-auto mt-4 w-3/6 skeleton-animate"
+      />
+    </div>
+  </div>;
+
+let tag = () =>
+  <div className="skeleton-body-container w-full mx-auto">
+    <div className="skeleton-body-wrapper mt-2 px-3 lg:px-0">
       <div
         className="skeleton-placeholder__line-sm mx-auto mt-4 w-3/6 skeleton-animate"
       />

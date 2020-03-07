@@ -20,8 +20,9 @@ let getRepos = (repositoryName, setState, ()) => {
 };
 
 let showRepo = repo => {
-  <div className="max-w-lg p-4 ">
-    <div className="overflow-hidden rounded-lg shadow-lg h-full bg-white pb-4">
+  <div className="max-w-lg p-4 w-full">
+    <div
+      className="overflow-hidden rounded-lg shadow-lg h-full bg-white flex flex-col justify-between">
       <div className="py-4 px-6 bg-white shadow">
         <i className="fab fa-github mr-2 font-bold text-xl" />
         <span className="font-bold text-xl"> {repo |> Repo.name |> str} </span>
@@ -41,7 +42,7 @@ let showRepo = repo => {
           {repo |> Repo.description |> str}
         </div>
       </div>
-      <div className="px-4">
+      <div className="px-4 pb-4">
         <ShowRepoLanguages url={repo |> Repo.languagesUrl} />
       </div>
     </div>
@@ -55,7 +56,8 @@ let make = (~repositoryName) => {
   React.useEffect1(getRepos(repositoryName, setState), [|repositoryName|]);
 
   switch (state) {
-  | Loading => <div className=" w-1/2 m-4"> {SkeltonLoading.card()} </div>
+  | Loading =>
+    <div className="w-full m-4 md:w-1/2"> {SkeltonLoading.card()} </div>
   | Loaded(repo) => showRepo(repo)
   };
 };

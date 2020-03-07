@@ -38,7 +38,8 @@ let make = (~url) => {
   React.useEffect1(getRepos(url, setState), [|url|]);
 
   switch (state) {
-  | Loading => <div className=" w-1/2 m-4"> {SkeltonLoading.card()} </div>
+  | Loading =>
+    <div className="w-full m-4 md:w-1/2"> {SkeltonLoading.tag()} </div>
   | Loaded(languages) => showLanguages(languages)
   };
 };
