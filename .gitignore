@@ -1,7 +1,10 @@
-.DS_Store
+# Ignore these associated with reason-react and bsb
 .merlin
-.bsb.lock
 npm-debug.log
+.DS_Store
+.bsb.lock
+*.bs.js
+
 /lib/bs/
 /node_modules/
 /bundleOutput/
