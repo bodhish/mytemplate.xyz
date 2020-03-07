@@ -5,11 +5,13 @@ let json = [%bs.raw {|require("../data.json")|}];
 let data = json |> Data.make;
 
 [@react.component]
-let make = () =>
+let make = () => {
   <div>
     <Bio name={data |> Data.name} links={data |> Data.socialLinks} />
     <ShowProducts products={data |> Data.products} />
+    <ShowRepositories repositories={data |> Data.repositories} />
   </div>;
+};
 // <div className="py-4 md:py-10 bg-gray-100">
 //   <div className="text-center">
 //     <h1 className="text-5xl text-indigo-900">

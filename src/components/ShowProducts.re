@@ -25,21 +25,15 @@ let make = (~products) =>
                   <p className="text-700 text-base">
                     {product |> Product.description |> str}
                   </p>
-                  <p>
-                    {
-                      let links = product |> Product.links;
-                      <ShowLinks
-                        links
-                        classes="mt-4 ml-2 mr-2 text-4xl text-gray-500 hover:text-green-500"
-                      />;
-                    }
-                  </p>
+                  {let links = product |> Product.links;
+                   <ShowLinks
+                     links
+                     classes="mt-4 ml-2 mr-2 text-4xl text-gray-500 hover:text-green-500"
+                   />}
                 </div>
                 <div className="px-6 py-4">
-                  {
-                    let tags = product |> Product.tags;
-                    <ShowTags tags />;
-                  }
+                  {let tags = product |> Product.tags;
+                   <ShowTags tags />}
                 </div>
               </div>
             </div>
