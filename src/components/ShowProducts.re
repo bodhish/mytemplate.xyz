@@ -4,9 +4,7 @@ let str = React.string;
 let make = (~products) =>
   <div className="py-4 md:py-10 bg-gray-100">
     <div className="text-center">
-      <h1 className="text-5xl text-indigo-900">
-        {"Projects worked on" |> str}
-      </h1>
+      <h1 className="text-5xl text-indigo-900"> {"Products" |> str} </h1>
     </div>
     <div className="flex flex-row flex-wrap mx-auto max-w-5xl">
       {products
@@ -22,7 +20,7 @@ let make = (~products) =>
                   <div className="font-bold text-xl mb-2">
                     {product |> Product.title |> str}
                   </div>
-                  <p className="text-700 text-base">
+                  <p className="text-gray-700 text-base">
                     {product |> Product.description |> str}
                   </p>
                   {let links = product |> Product.links;

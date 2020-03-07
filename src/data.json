@@ -41,5 +41,12 @@
       ]
     }
   ],
-  "repositories": ["bodhish/rails-6-tailwind", "SVdotCO/pupilfirst"]
+  "repositories": [
+    "SVdotCO/pupilfirst",
+    "afterflood/afterflood.in",
+    "bodhish/cortex",
+    "bodhish/ayushma-med",
+    "bodhish/kerala-flood-map",
+    "bodhish/create-reason-react-tailwind"
+  ]
 }
