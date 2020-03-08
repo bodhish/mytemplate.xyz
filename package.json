@@ -1,6 +1,6 @@
 {
   "name": "mytemplate.xyz",
-  "version": "0.0.2",
+  "version": "0.0.2 ",
   "scripts": {
     "build": "bsb -make-world",
     "start": "bsb -make-world -w -ws _ ",
