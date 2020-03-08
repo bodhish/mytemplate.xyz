@@ -1,0 +1,24 @@
+####{BSB GENERATED: NO EDIT
+B lib/bs
+FLG -open ReactHooksTemplate
+FLG -ppx '/home/bodhi/code/bodhish-in/node_modules/bs-platform/linux/bsc.exe -as-ppx -bs-jsx 3'
+S /home/bodhi/code/bodhish-in/node_modules/bs-platform/lib/ocaml
+B /home/bodhi/code/bodhish-in/node_modules/bs-platform/lib/ocaml
+FLG -w +a-4-9-40-41-42-50-61-102
+S /home/bodhi/code/bodhish-in/node_modules/reason-react/lib/ocaml
+B /home/bodhi/code/bodhish-in/node_modules/reason-react/lib/ocaml
+S /home/bodhi/code/bodhish-in/node_modules/@glennsl/bs-json/lib/ocaml
+B /home/bodhi/code/bodhish-in/node_modules/@glennsl/bs-json/lib/ocaml
+S /home/bodhi/code/bodhish-in/node_modules/bs-webapi/lib/ocaml
+B /home/bodhi/code/bodhish-in/node_modules/bs-webapi/lib/ocaml
+S /home/bodhi/code/bodhish-in/node_modules/bs-fetch/lib/ocaml
+B /home/bodhi/code/bodhish-in/node_modules/bs-fetch/lib/ocaml
+S src
+B lib/bs/src
+S src/types
+B lib/bs/src/types
+S src/components
+B lib/bs/src/components
+S src/utils
+B lib/bs/src/utils
+####BSB GENERATED: NO EDIT}
