@@ -39,12 +39,45 @@
         "https://www.youtube.com/watch?v=zvV64D_qMko",
         "https://www.youtube.com/watch?time_continue=5&v=0HamRsRgyLY"
       ]
+    },
+    {
+      "title": "OCCULT",
+      "description": "Augmented Reality Treasure Hunt based on the famous locations on bangalore. SAAS solution for event organizers to host tech based treasure hunt",
+      "logo": "http://bodhish.in/assets/occult.jpg",
+      "tags": ["AR", "Unity", "C#"],
+      "links": [
+        "http://bodhish.in/Occulut-Website/",
+        "https://www.youtube.com/watch?v=viY_inJsxEU",
+        "https://play.google.com/store/apps/details?id=in.creslainfotech.occult"
+      ]
+    },
+    {
+      "title": "Cortex",
+      "description": "First ever dual character controlled single player infinite runner game. Integrated with multi level gamification which could help the player to be ambidextrous",
+      "logo": "http://bodhish.in/assets/ayushma-logo-1.jpg",
+      "tags": ["FOOS", "Unity", "C#"],
+      "links": [
+        "https://www.producthunt.com/posts/cortex-first-ever-dual-character-controlled-single-player-infinite-runner-game",
+        "https://www.youtube.com/watch?v=4txVsa8s3ME",
+        "https://play.google.com/store/apps/details?id=com.eightstags.cortexnew",
+        "https://github.com/bodhish/CORTEX-Code"
+      ]
+    },
+    {
+      "title": "The Stylist",
+      "description": "A stylist booking platform developed for salons and freelancing stylist to manage appointments online built in 2016",
+      "logo": "http://bodhish.in/#",
+      "tags": ["PAAS", "Android Native", "PHP"],
+      "links": [
+        "http://bodhish.in/#",
+        "https://www.youtube.com/watch?v=U3m68Xz91GA&feature=youtu.be"
+      ]
     }
   ],
   "repositories": [
     "SVdotCO/pupilfirst",
     "afterflood/afterflood.in",
-    "bodhish/cortex",
+    "bodhish/plate-printing",
     "bodhish/ayushma-med",
     "bodhish/kerala-flood-map",
     "bodhish/create-reason-react-tailwind"
