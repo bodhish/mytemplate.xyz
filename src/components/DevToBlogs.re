@@ -62,8 +62,12 @@ let showBlogs = (blogs, showAll) => {
   <div className="flex flex-row flex-wrap mx-auto max-w-5xl justify-between">
     {filteredBlogs(blogs, showAll)
      |> Array.mapi((i, blog) =>
-          <div key={blog |> Blog.url} className="max-w-lg p-4 w-full">
-            <div className="overflow-hidden rounded-lg shadow-lg h-full">
+          <a
+            href={blog |> Blog.url}
+            key={blog |> Blog.url}
+            className="max-w-lg p-4 w-full">
+            <div
+              className="overflow-hidden rounded-lg shadow-lg h-full hover:bg-gray-100">
               {switch (blog |> Blog.coverImage) {
                | Some(src) =>
                  <img
@@ -90,12 +94,14 @@ let showBlogs = (blogs, showAll) => {
                  <ShowTags tags />}
               </div>
             </div>
-          </div>
+          </a>
         )
      |> React.array}
     {showAll
        ? React.null
-       : <a href="./blog" className="btn btn-primary btn-large mx-auto">
+       : <a
+           href="./blog"
+           className="btn text-white button-xl mx-auto bg-white text-indigo-900 border border-indigo-900">
            {"Show More" |> str}
          </a>}
   </div>;
