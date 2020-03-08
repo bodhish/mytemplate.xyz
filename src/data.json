@@ -54,7 +54,7 @@
     {
       "title": "Cortex",
       "description": "First ever dual character controlled single player infinite runner game. Integrated with multi level gamification which could help the player to be ambidextrous",
-      "logo": "http://bodhish.in/assets/ayushma-logo-1.jpg",
+      "logo": "http://bodhish.in/assets/cortex-1.jpg",
       "tags": ["FOOS", "Unity", "C#"],
       "links": [
         "https://www.producthunt.com/posts/cortex-first-ever-dual-character-controlled-single-player-infinite-runner-game",
@@ -66,7 +66,7 @@
     {
       "title": "The Stylist",
       "description": "A stylist booking platform developed for salons and freelancing stylist to manage appointments online built in 2016",
-      "logo": "http://bodhish.in/#",
+      "logo": "http://bodhish.in/assets/stylist.jpg",
       "tags": ["PAAS", "Android Native", "PHP"],
       "links": [
         "http://bodhish.in/#",

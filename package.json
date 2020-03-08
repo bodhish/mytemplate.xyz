@@ -1,6 +1,6 @@
 {
-  "name": "create-reason-react-tailwind",
-  "version": "0.1.0",
+  "name": "mytemplate.xyz",
+  "version": "0.0.1",
   "scripts": {
     "build": "bsb -make-world",
     "start": "bsb -make-world -w -ws _ ",
@@ -29,7 +29,8 @@
     "reason-react": ">=0.7.0",
     "style-loader": "^0.23.1",
     "tailwindcss": "^1.2",
-    "url-loader": "^2.1.0"
+    "url-loader": "^2.1.0",
+    "bs-webapi": "^0.15.2"
   },
   "devDependencies": {
     "bs-platform": "^7.0.1",

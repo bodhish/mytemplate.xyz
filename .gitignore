@@ -8,3 +8,6 @@ npm-debug.log
 /lib/bs/
 /node_modules/
 /bundleOutput/
+_redirects
+build/
+yarn.lock

@@ -42,6 +42,6 @@ let make = url => {
   {name, icon, url};
 };
 
-let makeArray = links => {
-  links |> Array.map(make);
+let decodeArray = json => {
+  json |> Json.Decode.array(Json.Decode.string) |> Array.map(make);
 };

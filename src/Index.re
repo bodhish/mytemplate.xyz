@@ -1,8 +1,12 @@
 [%bs.raw {|require("./tailwind.css")|}];
 [%bs.raw {|require("@fortawesome/fontawesome-free/js/all.js")|}];
-let json = [%bs.raw {|require("./data.json")|}];
-let data = json |> Data.make;
+
 let str = React.string;
+
+type props = {data: Data.t};
+
+let data = DomUtils.parseJsonTag(~id="my-template-data", ()) |> Data.decode;
+
 module Root = {
   let navBar = () => {
     <div className="bg-white my-4 sticky top-0">

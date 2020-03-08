@@ -20,15 +20,12 @@ let description = project => project.description;
 let tags = project => project.tags;
 let links = project => project.links;
 
-let makeArray = json => {
-  json
-  |> Array.map(p =>
-       make(
-         p##title,
-         p##description,
-         p##logo,
-         p##tags,
-         Link.makeArray(p##links),
-       )
-     );
+let decode = json => {
+  Json.Decode.{
+    title: json |> field("title", string),
+    description: json |> field("description", string),
+    image: json |> field("logo", string),
+    links: json |> field("links", Link.decodeArray),
+    tags: json |> field("tags", array(string)),
+  };
 };

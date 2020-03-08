@@ -6,19 +6,18 @@ var ReasonReactRouter = require("reason-react/src/ReasonReactRouter.js");
 var Data$ReactHooksTemplate = require("./types/Data.bs.js");
 var Home$ReactHooksTemplate = require("./components/Home.bs.js");
 var Section$ReactHooksTemplate = require("./components/Section.bs.js");
+var DomUtils$ReactHooksTemplate = require("./utils/DomUtils.bs.js");
 var DevToBlogs$ReactHooksTemplate = require("./components/DevToBlogs.bs.js");
 
 ((require("./tailwind.css")));
 
 ((require("@fortawesome/fontawesome-free/js/all.js")));
 
-var json = (require("./data.json"));
-
-var data = Data$ReactHooksTemplate.make(json);
-
 function str(prim) {
   return prim;
 }
+
+var data = Data$ReactHooksTemplate.decode(DomUtils$ReactHooksTemplate.parseJsonTag("my-template-data", /* () */0));
 
 function navBar(param) {
   return React.createElement("div", {
@@ -71,8 +70,7 @@ var Root = {
 
 ReactDOMRe.renderToElementWithId(React.createElement(Index$Root, { }), "root");
 
-exports.json = json;
-exports.data = data;
 exports.str = str;
+exports.data = data;
 exports.Root = Root;
 /*  Not a pure module */
