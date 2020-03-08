@@ -7,7 +7,7 @@ let make = (~name, ~links) =>
       className="bg-indigo-900 flex flex-col h-screen justify-center items-center text-center">
       <div>
         <h1
-          className="text-5xl hover:text-green-500 text-white flex items-center">
+          className="text-3xl md:text-5xl hover:text-green-500 text-white flex items-center">
           {name |> str}
         </h1>
       </div>

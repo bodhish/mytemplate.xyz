@@ -1,7 +1,11 @@
 let str = React.string;
 
 [@react.component]
-let make = (~links, ~classes="m-4 text-3xl text-white hover:text-green-500") =>
+let make =
+    (
+      ~links,
+      ~classes="m-4 text-xl md:text-3xl text-white hover:text-green-500",
+    ) =>
   <div>
     {links
      |> Array.map(link => {
