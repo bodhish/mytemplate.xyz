@@ -29,12 +29,22 @@ module Root = {
     </div>;
   };
 
+  let showBlogPage = id => {
+    <div>
+      {navBar()}
+      <Section color="bg-gray-100" title="Blog">
+        <BlogPage blogId=id />
+      </Section>
+    </div>;
+  };
+
   [@react.component]
   let make = () => {
     let url = ReasonReactRouter.useUrl();
     <div>
       {switch (url.path) {
        | ["blog"] => showBlog()
+       | ["blog", id] => showBlogPage(id)
        | _ => <Home data />
        }}
     </div>;

@@ -6,6 +6,7 @@ var ReasonReactRouter = require("reason-react/src/ReasonReactRouter.js");
 var Data$ReactHooksTemplate = require("./types/Data.bs.js");
 var Home$ReactHooksTemplate = require("./components/Home.bs.js");
 var Section$ReactHooksTemplate = require("./components/Section.bs.js");
+var BlogPage$ReactHooksTemplate = require("./components/BlogPage.bs.js");
 var DevToBlogs$ReactHooksTemplate = require("./components/DevToBlogs.bs.js");
 
 ((require("./tailwind.css")));
@@ -45,13 +46,32 @@ function showBlog(param) {
                 }));
 }
 
+function showBlogPage(id) {
+  return React.createElement("div", undefined, navBar(/* () */0), React.createElement(Section$ReactHooksTemplate.make, {
+                  color: "bg-gray-100",
+                  title: "Blog",
+                  children: React.createElement(BlogPage$ReactHooksTemplate.make, {
+                        blogId: id
+                      })
+                }));
+}
+
 function Index$Root(Props) {
   var url = ReasonReactRouter.useUrl(undefined, /* () */0);
   var match = url.path;
   var tmp;
   var exit = 0;
-  if (match && match[0] === "blog" && !match[1]) {
-    tmp = showBlog(/* () */0);
+  if (match && match[0] === "blog") {
+    var match$1 = match[1];
+    if (match$1) {
+      if (match$1[1]) {
+        exit = 1;
+      } else {
+        tmp = showBlogPage(match$1[0]);
+      }
+    } else {
+      tmp = showBlog(/* () */0);
+    }
   } else {
     exit = 1;
   }
@@ -66,6 +86,7 @@ function Index$Root(Props) {
 var Root = {
   navBar: navBar,
   showBlog: showBlog,
+  showBlogPage: showBlogPage,
   make: Index$Root
 };
 
