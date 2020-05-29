@@ -4,7 +4,8 @@ A simple website builder for developers.
 
 ## Example
 
-[Preview of the template](bodhish.in)
+![](https://res.cloudinary.com/bodhi/image/upload/v1590789174/apps/mytemplate.xyz/Screenshot_from_2020-05-30_03-19-47_lvbeme.png)
+[http://bodhish.in/](http://bodhish.in/)
 
 [Source code for the preview](https://github.com/bodhish/bodhish.github.io/blob/master/index.html)
 
@@ -48,7 +49,7 @@ A simple website builder for developers.
       }
     </script>
     <div id="root"></div>
-    <script src="https://cdn.jsdelivr.net/npm/mytemplate.xyz@0.0.4/build/Index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mytemplate.xyz@0.0.5/build/Index.js"></script>
 ```
 
 ### 3. Deploy the site to netlify or github pages
