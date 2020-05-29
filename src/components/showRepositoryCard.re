@@ -39,7 +39,10 @@ let showRepo = repo => {
       </div>
       <div className=" ">
         <div className="px-6 py-1 text-sm mt-2 text-gray-700 text-base">
-          {repo |> Repo.description |> str}
+          {switch (repo |> Repo.description) {
+           | Some(description) => description |> str
+           | None => React.null
+           }}
         </div>
       </div>
       <div className="px-4 pb-4">

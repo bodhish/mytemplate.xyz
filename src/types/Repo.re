@@ -1,6 +1,6 @@
 type t = {
   name: string,
-  description: string,
+  description: option(string),
   fork: bool,
   languagesUrl: string,
   stars: int,
@@ -29,7 +29,7 @@ let make = (~name, ~description, ~fork, ~languagesUrl, ~stars, ~forks, ~url) => 
 let decode = json => {
   Json.Decode.{
     name: json |> field("full_name", string),
-    description: json |> field("description", string),
+    description: json |> optional(field("description", string)),
     fork: json |> field("fork", bool),
     languagesUrl: json |> field("languages_url", string),
     stars: json |> field("stargazers_count", int),
