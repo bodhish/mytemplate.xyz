@@ -1,7 +1,7 @@
 let str = React.string;
 
 [@react.component]
-let make = (~products) =>
+let make = (~products, ~primaryColor) =>
   <div className="flex flex-row flex-wrap mx-auto max-w-5xl justify-between">
     {products
      |> Array.map(product =>
@@ -22,7 +22,12 @@ let make = (~products) =>
                 {let links = product |> Product.links;
                  <ShowLinks
                    links
-                   classes="mt-4 ml-2 mr-2 text-4xl text-gray-500 hover:text-green-500"
+                   classes={
+                     "mt-4 ml-2 mr-2 text-4xl text-gray-500 "
+                     ++ " hover:text-"
+                     ++ primaryColor
+                     ++ "-600"
+                   }
                  />}
               </div>
               <div className="px-6 py-4">

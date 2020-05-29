@@ -1,15 +1,31 @@
 [@react.component]
-let make = (~data) => {
+let make = (~data, ~primaryColor, ~textColor) => {
   <div>
-    <Bio name={data |> Data.name} links={data |> Data.socialLinks} />
-    <Section color="bg-white" title="Products">
-      <ShowProducts products={data |> Data.products} />
-    </Section>
-    <Section color="bg-gray-100" title="Recent Projects">
-      <ShowRepositories repositories={data |> Data.repositories} />
-    </Section>
-    <Section color="bg-white" title="Blogs">
-      <DevToBlogs devToUserId={data |> Data.devToUserId} />
-    </Section>
+    <Bio
+      name={data |> Data.name}
+      links={data |> Data.socialLinks}
+      primaryColor
+    />
+    {switch (data |> Data.products) {
+     | Some(products) =>
+       <Section color="bg-white" title="Products" textColor>
+         <ShowProducts products primaryColor />
+       </Section>
+     | None => React.null
+     }}
+    {switch (data |> Data.repositories) {
+     | Some(repositories) =>
+       <Section color="bg-gray-100" title="Recent Projects" textColor>
+         <ShowRepositories repositories />
+       </Section>
+     | None => React.null
+     }}
+    {switch (data |> Data.devToUserId) {
+     | Some(devToUserId) =>
+       <Section color="bg-white" title="Blogs" textColor>
+         <DevToBlogs devToUserId primaryColor />
+       </Section>
+     | None => React.null
+     }}
   </div>;
 };

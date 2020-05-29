@@ -58,7 +58,7 @@ let filteredBlogs = (blogs, showAll) => {
   showAll ? blogs : blogs |> Js.Array.filteri((_, index) => index < 4);
 };
 
-let showBlogs = (blogs, showAll) => {
+let showBlogs = (blogs, showAll, primaryColor) => {
   <div className="flex flex-row flex-wrap mx-auto max-w-5xl justify-between">
     {filteredBlogs(blogs, showAll)
      |> Array.mapi((i, blog) =>
@@ -101,14 +101,20 @@ let showBlogs = (blogs, showAll) => {
        ? React.null
        : <a
            href="./blog"
-           className="btn text-white button-xl mx-auto bg-white text-indigo-900 border border-indigo-900">
+           className={
+             "btn text-white button-xl mx-auto bg-white border text-"
+             ++ primaryColor
+             ++ "-900 border-"
+             ++ primaryColor
+             ++ "-900"
+           }>
            {"Show More" |> str}
          </a>}
   </div>;
 };
 
 [@react.component]
-let make = (~devToUserId, ~showAll=false) => {
+let make = (~devToUserId, ~primaryColor, ~showAll=false) => {
   let (state, setState) = React.useState(() => {data: Loading, showAll});
 
   React.useEffect1(getBlogs(devToUserId, setState), [|devToUserId|]);
@@ -125,6 +131,6 @@ let make = (~devToUserId, ~showAll=false) => {
         {SkeltonLoading.card()}
       </div>
     </div>
-  | Loaded(blogs) => showBlogs(blogs, showAll)
+  | Loaded(blogs) => showBlogs(blogs, showAll, primaryColor)
   };
 };

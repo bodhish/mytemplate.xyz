@@ -19,13 +19,17 @@ function str(prim) {
 
 var data = Data$ReactHooksTemplate.decode(DomUtils$ReactHooksTemplate.parseJsonTag("my-template-data", /* () */0));
 
+var primaryColor = Data$ReactHooksTemplate.primaryColor(data);
+
+var textColor = "text-" + (primaryColor + "-900");
+
 function navBar(param) {
   return React.createElement("div", {
               className: "bg-white my-4 sticky top-0"
             }, React.createElement("div", {
                   className: "flex text-white max-w-5xl mx-auto justify-between px-2 items-center py-4"
                 }, React.createElement("a", {
-                      className: "text-2xl font-black md:text-4xl text-indigo-900",
+                      className: "text-2xl font-black md:text-4xl " + textColor,
                       href: "./"
                     }, Data$ReactHooksTemplate.name(data)), React.createElement("a", {
                       className: "text-lg md:text-2xl text-gray-900",
@@ -34,14 +38,17 @@ function navBar(param) {
 }
 
 function showBlog(param) {
-  return React.createElement("div", undefined, navBar(/* () */0), React.createElement(Section$ReactHooksTemplate.make, {
-                  color: "bg-gray-100",
-                  title: "Blog",
-                  children: React.createElement(DevToBlogs$ReactHooksTemplate.make, {
-                        devToUserId: Data$ReactHooksTemplate.devToUserId(data),
-                        showAll: true
-                      })
-                }));
+  var match = Data$ReactHooksTemplate.devToUserId(data);
+  return React.createElement("div", undefined, navBar(/* () */0), match !== undefined ? React.createElement(Section$ReactHooksTemplate.make, {
+                    color: "bg-white",
+                    title: "Blogs",
+                    textColor: textColor,
+                    children: React.createElement(DevToBlogs$ReactHooksTemplate.make, {
+                          devToUserId: match,
+                          primaryColor: primaryColor,
+                          showAll: true
+                        })
+                  }) : null);
 }
 
 function Index$Root(Props) {
@@ -56,7 +63,9 @@ function Index$Root(Props) {
   }
   if (exit === 1) {
     tmp = React.createElement(Home$ReactHooksTemplate.make, {
-          data: data
+          data: data,
+          primaryColor: primaryColor,
+          textColor: textColor
         });
   }
   return React.createElement("div", undefined, tmp);
@@ -72,5 +81,7 @@ ReactDOMRe.renderToElementWithId(React.createElement(Index$Root, { }), "root");
 
 exports.str = str;
 exports.data = data;
+exports.primaryColor = primaryColor;
+exports.textColor = textColor;
 exports.Root = Root;
 /*  Not a pure module */

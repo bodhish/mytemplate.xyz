@@ -6,6 +6,8 @@ let str = React.string;
 type props = {data: Data.t};
 
 let data = DomUtils.parseJsonTag(~id="my-template-data", ()) |> Data.decode;
+let primaryColor = data |> Data.primaryColor;
+let textColor = "text-" ++ primaryColor ++ "-900";
 
 module Root = {
   let navBar = () => {
@@ -13,7 +15,7 @@ module Root = {
       <div
         className="flex text-white max-w-5xl mx-auto justify-between px-2 items-center py-4">
         <a
-          className="text-2xl font-black md:text-4xl text-indigo-900"
+          className={"text-2xl font-black md:text-4xl " ++ textColor}
           href="./">
           {data |> Data.name |> str}
         </a>
@@ -27,9 +29,13 @@ module Root = {
   let showBlog = () => {
     <div>
       {navBar()}
-      <Section color="bg-gray-100" title="Blog">
-        <DevToBlogs devToUserId={data |> Data.devToUserId} showAll=true />
-      </Section>
+      {switch (data |> Data.devToUserId) {
+       | Some(devToUserId) =>
+         <Section color="bg-white" title="Blogs" textColor>
+           <DevToBlogs devToUserId showAll=true primaryColor />
+         </Section>
+       | None => React.null
+       }}
     </div>;
   };
 
@@ -39,7 +45,7 @@ module Root = {
     <div>
       {switch (url.path) {
        | ["blog"] => showBlog()
-       | _ => <Home data />
+       | _ => <Home data primaryColor textColor />
        }}
     </div>;
   };
