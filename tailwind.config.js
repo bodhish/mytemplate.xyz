@@ -23,7 +23,7 @@ module.exports = {
 
     // These options are passed through directly to PurgeCSS
     options: {
-      whitelistPatterns: [/^bg-/, /^text-/, /^border-/],
+      whitelistPatterns: [/^bg-/, /^text-/, /^border-/, /^hover:/],
     },
   },
 };
