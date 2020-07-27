@@ -36,6 +36,7 @@ let make = url => {
     | url when url |> test("play") => ("fab fa-google-play", "Google Play")
     | url when url |> test("npm") => ("fab fa-npm", "npm")
     | url when url |> test("medium") => ("fab fa-medium", "Medium")
+    | url when url |> test("dev.to") => ("fab fa-dev", "Dev")
     | unknownUrl => ("fas fa-external-link-square-alt", unknownUrl)
     };
 
