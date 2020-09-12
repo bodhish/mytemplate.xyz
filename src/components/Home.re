@@ -16,7 +16,7 @@ let make = (~data, ~primaryColor, ~textColor) => {
     {switch (data |> Data.repositories) {
      | Some(repositories) =>
        <Section color="bg-gray-100" title="Recent Projects" textColor>
-         <ShowRepositories repositories />
+         <ShowRepositories repositories textColor />
        </Section>
      | None => React.null
      }}

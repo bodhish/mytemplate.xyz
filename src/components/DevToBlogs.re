@@ -59,57 +59,61 @@ let filteredBlogs = (blogs, showAll) => {
 };
 
 let showBlogs = (blogs, showAll, primaryColor) => {
-  <div className="flex flex-row flex-wrap mx-auto max-w-5xl justify-between">
-    {filteredBlogs(blogs, showAll)
-     |> Array.mapi((i, blog) =>
-          <a
-            href={blog |> Blog.url}
-            key={blog |> Blog.url}
-            className="max-w-lg p-4 w-full">
-            <div
-              className="overflow-hidden rounded-lg shadow-lg h-full hover:bg-gray-100">
-              {switch (blog |> Blog.coverImage) {
-               | Some(src) =>
-                 <img
-                   className="object-cover h-48 w-full shadow"
-                   src
-                   alt={blog |> Blog.title}
-                 />
-               | None => customImage(i, blog)
-               }}
-              <div className="px-6 pt-4">
-                <div className="font-bold text-xl break-all">
-                  {blog |> Blog.title |> str}
+  <div className="mx-auto max-w-5xl">
+    <div className="flex flex-row flex-wrap  justify-between">
+      {filteredBlogs(blogs, showAll)
+       |> Array.mapi((i, blog) =>
+            <a
+              href={blog |> Blog.url}
+              key={blog |> Blog.url}
+              className="max-w-lg p-4 w-full">
+              <div
+                className="overflow-hidden rounded-lg shadow-lg h-full hover:bg-gray-100">
+                {switch (blog |> Blog.coverImage) {
+                 | Some(src) =>
+                   <img
+                     className="object-cover h-48 w-full shadow"
+                     src
+                     alt={blog |> Blog.title}
+                   />
+                 | None => customImage(i, blog)
+                 }}
+                <div className="px-6 pt-4">
+                  <div className="font-bold text-xl break-all">
+                    {blog |> Blog.title |> str}
+                  </div>
+                  <p className="text-gray-700 text-base mt-2">
+                    {blog |> Blog.description |> str}
+                  </p>
+                  <div className="text-gray-700 text-base mt-1">
+                    <i className="fas fa-history mr-4" />
+                    <span> {blog |> Blog.date |> str} </span>
+                  </div>
                 </div>
-                <p className="text-gray-700 text-base mt-2">
-                  {blog |> Blog.description |> str}
-                </p>
-                <div className="text-gray-700 text-base mt-1">
-                  <i className="fas fa-history mr-4" />
-                  <span> {blog |> Blog.date |> str} </span>
+                <div className="px-6 pt-4 pb-4">
+                  {let tags = blog |> Blog.tags;
+                   <ShowTags tags />}
                 </div>
               </div>
-              <div className="px-6 pt-4 pb-4">
-                {let tags = blog |> Blog.tags;
-                 <ShowTags tags />}
-              </div>
-            </div>
-          </a>
-        )
-     |> React.array}
-    {showAll
-       ? React.null
-       : <a
-           href="./blog"
-           className={
-             "btn text-white button-xl mx-auto bg-white border text-"
-             ++ primaryColor
-             ++ "-900 border-"
-             ++ primaryColor
-             ++ "-900"
-           }>
-           {"Show More" |> str}
-         </a>}
+            </a>
+          )
+       |> React.array}
+    </div>
+    <div className="mx-auto text-center">
+      {showAll
+         ? React.null
+         : <a
+             href="./blog"
+             className={
+               "btn text-white button-xl mx-auto bg-white border text-"
+               ++ primaryColor
+               ++ "-900 border-"
+               ++ primaryColor
+               ++ "-900"
+             }>
+             {"Show More" |> str}
+           </a>}
+    </div>
   </div>;
 };
 

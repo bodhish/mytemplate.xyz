@@ -6,6 +6,7 @@ type t = {
   stars: int,
   forks: int,
   url: string,
+  homepage: string,
 };
 
 let name = t => t.name;
@@ -15,8 +16,19 @@ let languagesUrl = t => t.languagesUrl;
 let stars = t => t.stars;
 let forks = t => t.forks;
 let url = t => t.url;
+let homepage = t => t.homepage;
 
-let make = (~name, ~description, ~fork, ~languagesUrl, ~stars, ~forks, ~url) => {
+let make =
+    (
+      ~name,
+      ~description,
+      ~fork,
+      ~languagesUrl,
+      ~stars,
+      ~forks,
+      ~url,
+      ~homepage,
+    ) => {
   name,
   description,
   fork,
@@ -24,6 +36,7 @@ let make = (~name, ~description, ~fork, ~languagesUrl, ~stars, ~forks, ~url) => 
   stars,
   forks,
   url,
+  homepage,
 };
 
 let decode = json => {
@@ -35,5 +48,6 @@ let decode = json => {
     stars: json |> field("stargazers_count", int),
     forks: json |> field("forks", int),
     url: json |> field("url", string),
+    homepage: json |> field("homepage", string),
   };
 };
