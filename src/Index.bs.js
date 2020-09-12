@@ -1,8 +1,8 @@
 'use strict';
 
 var React = require("react");
-var ReactDOMRe = require("reason-react/src/ReactDOMRe.js");
-var ReasonReactRouter = require("reason-react/src/ReasonReactRouter.js");
+var ReactDOMRe = require("reason-react/src/legacy/ReactDOMRe.bs.js");
+var ReasonReactRouter = require("reason-react/src/ReasonReactRouter.bs.js");
 var Data$ReactHooksTemplate = require("./types/Data.bs.js");
 var Home$ReactHooksTemplate = require("./components/Home.bs.js");
 var Section$ReactHooksTemplate = require("./components/Section.bs.js");
@@ -17,7 +17,7 @@ function str(prim) {
   return prim;
 }
 
-var data = Data$ReactHooksTemplate.decode(DomUtils$ReactHooksTemplate.parseJsonTag("my-template-data", /* () */0));
+var data = Data$ReactHooksTemplate.decode(DomUtils$ReactHooksTemplate.parseJsonTag("my-template-data", undefined));
 
 var primaryColor = Data$ReactHooksTemplate.primaryColor(data);
 
@@ -38,13 +38,13 @@ function navBar(param) {
 }
 
 function showBlog(param) {
-  var match = Data$ReactHooksTemplate.devToUserId(data);
-  return React.createElement("div", undefined, navBar(/* () */0), match !== undefined ? React.createElement(Section$ReactHooksTemplate.make, {
+  var devToUserId = Data$ReactHooksTemplate.devToUserId(data);
+  return React.createElement("div", undefined, navBar(undefined), devToUserId !== undefined ? React.createElement(Section$ReactHooksTemplate.make, {
                     color: "bg-white",
                     title: "Blogs",
                     textColor: textColor,
                     children: React.createElement(DevToBlogs$ReactHooksTemplate.make, {
-                          devToUserId: match,
+                          devToUserId: devToUserId,
                           primaryColor: primaryColor,
                           showAll: true
                         })
@@ -52,12 +52,12 @@ function showBlog(param) {
 }
 
 function Index$Root(Props) {
-  var url = ReasonReactRouter.useUrl(undefined, /* () */0);
+  var url = ReasonReactRouter.useUrl(undefined, undefined);
   var match = url.path;
   var tmp;
   var exit = 0;
   if (match && match[0] === "blog" && !match[1]) {
-    tmp = showBlog(/* () */0);
+    tmp = showBlog(undefined);
   } else {
     exit = 1;
   }

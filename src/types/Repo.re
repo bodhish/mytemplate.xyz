@@ -6,7 +6,7 @@ type t = {
   stars: int,
   forks: int,
   url: string,
-  homepage: string,
+  homepage: option(string),
 };
 
 let name = t => t.name;
@@ -48,6 +48,6 @@ let decode = json => {
     stars: json |> field("stargazers_count", int),
     forks: json |> field("forks", int),
     url: json |> field("url", string),
-    homepage: json |> field("homepage", string),
+    homepage: json |> optional(field("homepage", string)),
   };
 };

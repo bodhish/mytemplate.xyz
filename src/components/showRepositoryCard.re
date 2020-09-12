@@ -53,15 +53,18 @@ let showRepo = (repo, textColor) => {
         </div>
       </div>
       <div className="px-6 py-1 text-sm mt-1 text-gray-700">
-        {Repo.homepage(repo) != ""
-           ? <a
-               href={Repo.homepage(repo)}
-               target="blank"
-               className={"flex items-center hover:" ++ textColor}>
-               <i className="fas fa-external-link-alt mr-2" />
-               <div className="truncate"> {Repo.homepage(repo) |> str} </div>
-             </a>
-           : React.null}
+        {Repo.homepage(repo)
+         ->Belt.Option.mapWithDefault(React.null, link =>
+             link != ""
+               ? <a
+                   href=link
+                   target="blank"
+                   className={"flex items-center hover:" ++ textColor}>
+                   <i className="fas fa-external-link-alt mr-2" />
+                   <div className="truncate"> {link |> str} </div>
+                 </a>
+               : React.null
+           )}
       </div>
       <div className="px-4 pb-4">
         <ShowRepoLanguages url={repo |> Repo.languagesUrl} />
