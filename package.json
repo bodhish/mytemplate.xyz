@@ -23,23 +23,25 @@
     "@fortawesome/fontawesome-free": "^5.12.1",
     "@glennsl/bs-json": "^5.0.2",
     "bs-fetch": "^0.5.2",
-    "postcss-flexbugs-fixes": "^4.1.0",
+    "postcss-flexbugs-fixes": "^4.2.1",
     "postcss-import": "^12.0.1",
     "postcss-preset-env": "^6.7.0",
-    "reason-react": ">=0.7.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "reason-react": "^0.9.1",
     "style-loader": "^0.23.1",
     "tailwindcss": "^1.8.7",
     "url-loader": "^2.1.0",
     "bs-webapi": "^0.15.2"
   },
   "devDependencies": {
-    "bs-platform": "^7.0.1",
-    "css-loader": "^3.1.0",
+    "bs-platform": "^7.3.2",
+    "css-loader": "^3.6.0",
     "file-loader": "^4.1.0",
     "html-webpack-plugin": "^3.2.0",
     "postcss-loader": "^3.0.0",
-    "webpack": "^4.0.1",
-    "webpack-cli": "^3.1.1",
-    "webpack-dev-server": "^3.1.8"
+    "webpack": "^4.43.1",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
   }
 }
