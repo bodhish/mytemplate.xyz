@@ -22,5 +22,9 @@
     "bs-webapi",
     "bs-fetch"
   ],
-  "refmt": 3
+  "refmt": 3,
+  "warnings": {
+    "number": "-48",
+    "error": "+8"
+  }
 }

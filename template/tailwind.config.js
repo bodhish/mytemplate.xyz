@@ -21,9 +21,8 @@ module.exports = {
   purge: {
     content: ["./src/**/*.html", "./src/**/*.re", "./src/**/*.bs.js"],
 
-    // These options are passed through directly to PurgeCSS
     options: {
-      whitelistPatterns: [/^bg-/, /^text-/, /^border-/, /^hover:/],
+      safelist: [/^bg-/, /^text-/, /^border-/, /^hover:/],
     },
   },
 };
