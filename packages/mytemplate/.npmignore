@@ -4,13 +4,15 @@ npm-debug.log
 .DS_Store
 .bsb.lock
 *.bs.js
-.bsconfig.json
+bsconfig.json
 
 /lib/
 /node_modules/
 /bundleOutput/
 _redirects
 yarn.lock
+/src
+
 
 netlify.toml
 package-lock.json
