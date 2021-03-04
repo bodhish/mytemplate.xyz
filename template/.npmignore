@@ -1,0 +1,19 @@
+# Ignore these associated with reason-react and bsb
+.merlin
+npm-debug.log
+.DS_Store
+.bsb.lock
+*.bs.js
+.bsconfig.json
+
+/lib/
+/node_modules/
+/bundleOutput/
+_redirects
+yarn.lock
+
+netlify.toml
+package-lock.json
+postcss.config.js
+tailwind.config.js
+webpack.config.js
