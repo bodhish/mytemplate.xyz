@@ -38,6 +38,12 @@ let getData = () => {
   }
 }
 
+let download = data => {
+  let json = Json.stringify(Data.encode(data))
+
+  Download.downloadFile(Config.data(data.name, json))
+}
+
 let initialState = () => {data: getData(), showTemplateEditor: false}
 
 let primaryColor = data => Data.primaryColor(data)
@@ -84,7 +90,7 @@ let make = () => {
           <Editors data=state.data updateDataCB={data => send(UpdateData(data))} />
         </div>
         <div className="flex-shrink-0 flex border-t border-gray-200 p-4">
-          <div> {str("Download")} </div>
+          <div onClick={_ => download(state.data)}> {str("Download")} </div>
         </div>
       </nav>
     </div>
