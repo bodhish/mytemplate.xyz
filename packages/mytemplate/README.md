@@ -2,7 +2,7 @@
 
 A simple website builder for developers.
 
-[Builder](http://mytemplate.xyz/)
+[No-Code Builder](http://mytemplate.xyz/)
 
 ## Example
 
