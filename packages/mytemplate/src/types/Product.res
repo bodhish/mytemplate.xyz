@@ -65,4 +65,21 @@ let empty = () =>
     Link.defaultArray(),
   )
 
+let defaultArray = () => [
+  make(
+    "Awareness",
+    "A multi-language single page serverless quiz app created with reason react. Avilable in English, French, Malayalam, Urdu and Kannada",
+    Some("https://bodhish.in/assets/awareness-logo.png"),
+    ["ReScript", "Reason React", "Tailwind"],
+    Link.defaultArray(),
+  ),
+  make(
+    "Afterflood",
+    "A verified crowd sourced data hub for after flood recovery. Created to support 2018 Kerala Flood recovery which got 1M page visits in 4 days.",
+    Some("https://bodhish.in/assets/ayushma-logo.jpg"),
+    ["No Code", "Supported By Cloudflare Project Galileo"],
+    Link.defaultArray(),
+  ),
+]
+
 let addEmpty = products => products->Array.append([empty()])

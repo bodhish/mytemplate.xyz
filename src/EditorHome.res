@@ -19,15 +19,19 @@ let reducer = (state, action) =>
   | UpdateData(data) => {
       Dom.Storage2.setItem(
         Dom.Storage2.sessionStorage,
-        "mytemplate-data",
+        Config.domStorageKey,
         Json.stringify(Data.encode(data)),
       )
       {...state, data: data}
     }
   }
+let clearData = () => {
+  Dom.Storage2.removeItem(Dom.Storage2.sessionStorage, Config.domStorageKey)
+  DomUtils.reload()
+}
 
 let getData = () => {
-  let s = Dom.Storage2.getItem(Dom.Storage2.sessionStorage, "mytemplate-data")
+  let s = Dom.Storage2.getItem(Dom.Storage2.sessionStorage, Config.domStorageKey)
   switch s {
   | Some(data) =>
     switch Json.parse(data) {
@@ -45,9 +49,6 @@ let download = data => {
 }
 
 let initialState = () => {data: getData(), showTemplateEditor: false}
-
-let primaryColor = data => Data.primaryColor(data)
-let textColor = data => "text-" ++ Data.primaryColor(data) ++ "-900"
 
 let editProducts = (products, data, send) =>
   <div>
@@ -89,17 +90,29 @@ let make = () => {
           <p className="text-sm font-mono mt-1"> {str("A no-code template for developer site")} </p>
           <Editors data=state.data updateDataCB={data => send(UpdateData(data))} />
         </div>
-        <div className="flex-shrink-0 flex border-t border-gray-200 p-4">
-          <div onClick={_ => download(state.data)}> {str("Download")} </div>
+        <div className="mt-6 py-4">
+          <button className="btn btn-large btn-success w-full" onClick={_ => download(state.data)}>
+            <i className="fas fa-download mr-2 " /> <span> {str("Download Site")} </span>
+          </button>
         </div>
       </nav>
     </div>
     <main className="col-span-9 mb-6">
       <div className="py-2"> {str("Preview of website")} </div>
-      <div className="shadow">
-        <Home
-          data=state.data primaryColor={primaryColor(state.data)} textColor={textColor(state.data)}
-        />
+      <div className="shadow"> <Root data=state.data /> </div>
+      <div className="mt-4 flex justify-center items-center">
+        <a
+          href="https://github.com/bodhish/mytemplate.xyz"
+          target="blank"
+          className="hover:text-indigo-500 hover:font-bold cursor-pointer">
+          <i className="fab fa-github mr-2 " /> {str("Source Code")}
+        </a>
+        <button
+          onClick={_ => clearData()}
+          target="blank"
+          className="ml-6 hover:text-red-500 hover:font-bold cursor-pointer">
+          <i className="fas fa-trash-alt mr-2 " /> {str("Clear Cache")}
+        </button>
       </div>
     </main>
   </div>

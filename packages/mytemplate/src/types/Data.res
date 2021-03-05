@@ -46,7 +46,7 @@ let encode = t => {
 let empty = () => {
   name: "John Doe",
   socialLinks: Link.defaultArray(),
-  products: Some([Product.empty(), Product.empty()]),
+  products: Some(Product.defaultArray()),
   repositories: Some(["bodhish/mytemplate.xyz", "pupilfirst/pupilfirst"]),
   devToUserId: Some("bodhish"),
   primaryColorString: Some("indigo"),

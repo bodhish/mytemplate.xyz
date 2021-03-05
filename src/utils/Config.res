@@ -17,9 +17,11 @@ let htmlHead = name =>
 let htmlTail = `
   </script>
     <div id="root"></div>
-    <script src="https://cdn.jsdelivr.net/npm/mytemplate.xyz@0.3.0/build/Index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mytemplate.xyz@0.4.0/build/Index.js"></script>
   </body>
 </html>
 `
 
 let data = (name, json) => htmlHead(name) ++ json ++ htmlTail
+
+let domStorageKey = "mytemplate-data"
