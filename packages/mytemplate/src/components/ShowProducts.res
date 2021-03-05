@@ -4,10 +4,12 @@ let str = React.string
 let make = (~products, ~primaryColor) =>
   <div className="flex flex-row flex-wrap mx-auto max-w-5xl justify-between">
     {products
-    |> Array.map(product =>
-      <div key={product |> Product.title} className="max-w-lg p-4 w-full">
+    |> Js.Array.mapi((product, i) =>
+      <div key={string_of_int(i)} className="max-w-lg p-4 w-full">
         <div className="overflow-hidden rounded-lg shadow-lg h-full">
-          <img className=" " src={product |> Product.image} alt={product |> Product.title} />
+          {Product.image(product)->Belt.Option.mapWithDefault(React.null, src =>
+            <img className=" " src alt={product |> Product.title} />
+          )}
           <div className="px-6 py-4">
             <div className="font-bold text-xl mb-2"> {product |> Product.title |> str} </div>
             <p className="text-gray-700 text-base"> {product |> Product.description |> str} </p>

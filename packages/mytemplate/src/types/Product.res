@@ -1,7 +1,7 @@
 type t = {
   title: string,
   description: string,
-  image: string,
+  image: option<string>,
   tags: array<string>,
   links: array<Link.t>,
 }
@@ -25,8 +25,44 @@ let decode = json => {
   {
     title: json |> field("title", string),
     description: json |> field("description", string),
-    image: json |> field("logo", string),
+    image: json |> optional(field("logo", string)),
     links: json |> field("links", Link.decodeArray),
     tags: json |> field("tags", array(string)),
   }
 }
+
+let encode = t => {
+  open Json.Encode
+  object_(list{
+    ("title", string(t.title)),
+    ("description", string(t.description)),
+    ("image", nullable(string, t.image)),
+    ("tags", array(string, t.tags)),
+    ("links", array(string, Link.stringArray(t.links))),
+  })
+}
+
+let encodeArray = projects =>
+  projects |> {
+    open Json.Encode
+    array(encode)
+  }
+
+let updateTitle = (t, title) => {...t, title: title}
+let updateDescription = (t, description) => {...t, description: description}
+let updateImage = (t, image) => {...t, image: image}
+let updateLinks = (t, links) => {...t, links: links}
+let updateTags = (t, tags) => {...t, tags: tags}
+
+let replace = (products, p, index) => products |> Js.Array.mapi((a, i) => i == index ? p : a)
+
+let empty = () =>
+  make(
+    "Wortal.co",
+    "Wortal is a no-code website builder created with reason react!",
+    Some("https://bodhish.in/assets/stylist.jpg"),
+    ["No Code", "Reason React"],
+    Link.defaultArray(),
+  )
+
+let addEmpty = products => products->Array.append([empty()])

@@ -1,0 +1,9 @@
+[build]
+  base    = ""
+  publish = "build"
+  command = "npm i && npm run clean && npm run build && npm run webpack:production"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

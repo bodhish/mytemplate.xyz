@@ -30,3 +30,35 @@ let decode = json => {
     primaryColorString: json |> optional(field("primaryColor", string)),
   }
 }
+
+let encode = t => {
+  open Json.Encode
+  object_(list{
+    ("name", string(t.name)),
+    ("socialLinks", array(string, Link.stringArray(t.socialLinks))),
+    ("devToUserId", nullable(string, t.devToUserId)),
+    ("primaryColor", nullable(string, t.primaryColorString)),
+    ("products", Product.encodeArray(Belt.Option.getWithDefault(t.products, []))),
+    ("repositories", array(string, Belt.Option.getWithDefault(t.repositories, []))),
+  })
+}
+
+let empty = () => {
+  name: "John Doe",
+  socialLinks: Link.defaultArray(),
+  products: Some([Product.empty(), Product.empty()]),
+  repositories: Some(["bodhish/mytemplate.xyz", "pupilfirst/pupilfirst"]),
+  devToUserId: Some("bodhish"),
+  primaryColorString: None,
+}
+
+let updateProducts = (t, p) => {
+  ...t,
+  products: p,
+}
+
+let updateDevToId = (t, devToUserId) => {...t, devToUserId: devToUserId}
+let updateRepositories = (t, repositories) => {...t, repositories: repositories}
+let updateLinks = (t, socialLinks) => {...t, socialLinks: socialLinks}
+let updateName = (t, name) => {...t, name: name}
+let updatePrimaryColor = (t, primaryColorString) => {...t, primaryColorString: primaryColorString}

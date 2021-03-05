@@ -40,3 +40,24 @@ let make = url => {
 }
 
 let decodeArray = json => json |> Json.Decode.array(Json.Decode.string) |> Array.map(make)
+
+let stringArray = links => links |> Array.map(a => a.url)
+
+let empty = () => {
+  name: "link",
+  icon: "fas fa-external-link-square-alt",
+  url: "",
+}
+
+let updateUrl = url => make(url)
+
+let defaultArray = () =>
+  Js.Array.map(
+    l => make(l),
+    [
+      "https://github.com/bodhish",
+      "https://www.npmjs.com/~bodhish",
+      "https://twitter.com/bodhishthomas",
+      "https://www.linkedin.com/in/bodhish/",
+    ],
+  )
