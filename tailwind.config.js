@@ -3,7 +3,17 @@ module.exports = {
   variants: {},
   plugins: [],
   purge: {
-    content: ["./src/**/*.html", "./src/**/*.re", "./src/**/*.bs.js"],
+    content: [
+      "./src/**/*.html",
+      "./src/**/*.res",
+      "./src/**/*.bs.js",
+      "./packages/mytemplate/src/**/*.res",
+      "./packages/mytemplate/src/**/*.bs.js",
+    ],
+
+    options: {
+      safelist: [/^bg-/, /^text-/, /^border-/, /^hover:/],
+    },
   },
 };
 
