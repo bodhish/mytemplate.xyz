@@ -49,7 +49,7 @@ let empty = () => {
   products: Some([Product.empty(), Product.empty()]),
   repositories: Some(["bodhish/mytemplate.xyz", "pupilfirst/pupilfirst"]),
   devToUserId: Some("bodhish"),
-  primaryColorString: None,
+  primaryColorString: Some("indigo"),
 }
 
 let updateProducts = (t, p) => {
