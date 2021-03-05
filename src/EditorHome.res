@@ -83,7 +83,7 @@ let make = () => {
 
   <div className="w-full mx-auto sm:px-6 lg:px-8 lg:grid lg:grid-cols-12 lg:gap-8 bg-gray-100">
     <div className="block col-span-3 h-full">
-      <nav className="sticky top-0 ">
+      <nav className="sticky top-0 px-4 md:px-0">
         <div className="pt-4">
           <h1 className="hidden"> {str("mytemplate.xyz")} </h1>
           <img className="h-10" src={logo} />
@@ -98,7 +98,7 @@ let make = () => {
       </nav>
     </div>
     <main className="col-span-9 mb-6">
-      <div className="py-2"> {str("Preview of website")} </div>
+      <div className="py-2 px-4 md:px-0"> {str("Preview of website")} </div>
       <div className="shadow"> <Root data=state.data /> </div>
       <div className="mt-4 flex justify-center items-center">
         <a
