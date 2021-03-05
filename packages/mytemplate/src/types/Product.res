@@ -25,7 +25,7 @@ let decode = json => {
   {
     title: json |> field("title", string),
     description: json |> field("description", string),
-    image: json |> optional(field("logo", string)),
+    image: json |> optional(field("image", string)),
     links: json |> field("links", Link.decodeArray),
     tags: json |> field("tags", array(string)),
   }

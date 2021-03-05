@@ -2,6 +2,8 @@
 
 A simple website builder for developers.
 
+[Builder](http://mytemplate.xyz/)
+
 ## Example
 
 ![](https://res.cloudinary.com/bodhi/image/upload/v1590789174/apps/mytemplate.xyz/Screenshot_from_2020-05-30_03-19-47_lvbeme.png)
@@ -69,7 +71,7 @@ A simple website builder for developers.
 | title       | string           | Your product name                          |
 | ----------- | ---------------- | ------------------------------------------ |
 | description | optional(string) | Your product description                   |
-| logo        | string           | logo link for your product                 |
+| image       | optional(string) | logo link for your product                 |
 | tags        | array(string)    | Tags that you want to add for your product |
 | links       | array(string)    | Social links for the product               |
 
