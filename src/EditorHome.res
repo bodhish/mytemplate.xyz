@@ -18,7 +18,7 @@ let reducer = (state, action) =>
   | ClearTemplateEditor => {...state, showTemplateEditor: false}
   | UpdateData(data) => {
       Dom.Storage2.setItem(
-        Dom.Storage2.sessionStorage,
+        Dom.Storage2.localStorage,
         Config.domStorageKey,
         Json.stringify(Data.encode(data)),
       )
@@ -26,12 +26,12 @@ let reducer = (state, action) =>
     }
   }
 let clearData = () => {
-  Dom.Storage2.removeItem(Dom.Storage2.sessionStorage, Config.domStorageKey)
+  Dom.Storage2.removeItem(Dom.Storage2.localStorage, Config.domStorageKey)
   DomUtils.reload()
 }
 
 let getData = () => {
-  let s = Dom.Storage2.getItem(Dom.Storage2.sessionStorage, Config.domStorageKey)
+  let s = Dom.Storage2.getItem(Dom.Storage2.localStorage, Config.domStorageKey)
   switch s {
   | Some(data) =>
     switch Json.parse(data) {
