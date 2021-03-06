@@ -81,6 +81,25 @@ let editProducts = (products, data, send) =>
     </div>
   </div>
 
+let buttonClasses = bool =>
+  bool
+    ? "text-indigo-600 font-bold px-2 py-1 text-sm"
+    : "text-gray-900 font-bold px-2 py-1 text-sm cursor-pointer"
+
+let actionButtons = (state, send, classes) => {
+  <div className={classes}>
+    <div className={buttonClasses(state.view == Editor)} onClick={_ => send(SetEditor)}>
+      {str("Editor")}
+    </div>
+    <div className={buttonClasses(state.view == ImportConfig)} onClick={_ => send(SetImportConfig)}>
+      {str("Import")}
+    </div>
+    <div className={buttonClasses(state.view == Docs)} onClick={_ => send(SetDocs)}>
+      {str("Docs")}
+    </div>
+  </div>
+}
+
 @react.component
 let make = () => {
   let (state, send) = React.useReducer(reducer, initialState())
@@ -92,6 +111,7 @@ let make = () => {
           <h1 className="hidden"> {str("mytemplate.xyz")} </h1>
           <img className="h-10" src={logo} />
           <p className="text-sm font-mono mt-1"> {str("A no-code template for developer site")} </p>
+          {actionButtons(state, send, "flex -ml-2 -mb-2 mt-2")}
           {switch state.view {
           | Editor => <Editors data=state.data updateDataCB={data => send(UpdateData(data))} />
           | ImportConfig =>
@@ -102,7 +122,7 @@ let make = () => {
               }}
               cancelCB={_ => send(SetEditor)}
             />
-          | Docs => <div> {"doc"->str} </div>
+          | Docs => <Docs />
           }}
         </div>
         {switch state.view {
@@ -119,12 +139,8 @@ let make = () => {
       </nav>
     </div>
     <main className="col-span-9 mb-6">
-      <div className="py-2 px-4 md:px-0 flex justify-between">
-        <div> {str("Preview of website")} </div>
-        <div>
-          <div className="btn " onClick={_ => send(SetImportConfig)}> {str("Import")} </div>
-          <div className="btn " onClick={_ => send(SetEditor)}> {str("Editor")} </div>
-        </div>
+      <div className="py-2 px-4 md:px-0 flex justify-between items-center">
+        <div> {str("Preview of website")} </div> {actionButtons(state, send, "flex -mr-2")}
       </div>
       <div className="shadow"> <Root data=state.data /> </div>
       <div className="mt-4 flex justify-center items-center">

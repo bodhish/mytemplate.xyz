@@ -111,3 +111,27 @@ h6 {
 .sidebar {
   height: 100vh;
 }
+
+.btn-default {
+  @apply bg-gray-300 text-gray-500;
+}
+
+.btn-default:hover {
+  @apply bg-gray-400 text-gray-600;
+}
+
+.btn-default:focus {
+  @apply bg-gray-400 text-gray-700;
+}
+
+.btn-subtle {
+  @apply bg-gray-200 text-gray-800;
+}
+
+.btn-subtle:hover {
+  @apply bg-gray-300 text-gray-900;
+}
+
+.btn-subtle:focus {
+  @apply bg-gray-400 text-gray-900;
+}

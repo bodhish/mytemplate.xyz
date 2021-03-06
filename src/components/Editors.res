@@ -43,7 +43,7 @@ let colorPicker = (data, updateDataCB) => {
       <svg
         key={color}
         onClick={_ => updateDataCB(Data.updatePrimaryColor(data, Some(color)))}
-        className={"h-10 w-10 text-" ++ color ++ "-900"}
+        className={"cursor-pointer h-10 w-10 text-" ++ color ++ "-900"}
         fill="currentColor"
         viewBox="0 0 8 8">
         <circle cx="4" cy="4" r="3" />
