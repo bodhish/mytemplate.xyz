@@ -81,16 +81,16 @@ let editProducts = (products, data, send) =>
 let make = () => {
   let (state, send) = React.useReducer(reducer, initialState())
 
-  <div className="w-full mx-auto sm:px-6 lg:px-8 lg:grid lg:grid-cols-12 lg:gap-8 bg-gray-100">
+  <div className="w-full mx-auto sm:px-6 lg:px-8 lg:grid lg:grid-cols-12 lg:gap-4 bg-gray-100">
     <div className="block col-span-3 h-full">
-      <nav className="sticky top-0 px-4 md:px-0">
-        <div className="pt-4">
+      <nav className="sticky top-0 px-4 md:px-0 sidebar overflow-y-scroll ">
+        <div className="pt-4 mr-2">
           <h1 className="hidden"> {str("mytemplate.xyz")} </h1>
           <img className="h-10" src={logo} />
           <p className="text-sm font-mono mt-1"> {str("A no-code template for developer site")} </p>
           <Editors data=state.data updateDataCB={data => send(UpdateData(data))} />
         </div>
-        <div className="mt-6 py-4">
+        <div className="mt-6 py-4 mr-2">
           <button className="btn btn-large btn-success w-full" onClick={_ => download(state.data)}>
             <i className="fas fa-download mr-2 " /> <span> {str("Download Site")} </span>
           </button>

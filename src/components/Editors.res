@@ -6,8 +6,12 @@ let editProducts = (products, data, updateDataCB) =>
     |> Js.Array.mapi((product, index) => {
       let updateProductCB = p =>
         updateDataCB(Data.updateProducts(data, Some(Product.replace(products, p, index))))
-      let delteCB = (index, ()) =>
-        updateDataCB(Data.updateProducts(data, Some(ArrayUtils.remove(products, index))))
+      let delteCB = (index, ()) => {
+        let newProducts = ArrayUtils.remove(products, index)
+        updateDataCB(
+          Data.updateProducts(data, ArrayUtils.isEmpty(newProducts) ? None : Some(newProducts)),
+        )
+      }
 
       <ProductEditor
         key={string_of_int(index)}
@@ -95,7 +99,8 @@ let make = (~data: Data.t, ~updateDataCB) => {
       </label>
       <StringsEditor
         collection={Belt.Option.getWithDefault(data.repositories, [])}
-        updateCollectionCB={r => updateDataCB(Data.updateRepositories(data, Some(r)))}
+        updateCollectionCB={r =>
+          updateDataCB(Data.updateRepositories(data, ArrayUtils.isEmpty(r) ? None : Some(r)))}
         title="Repositories"
       />
     </div>

@@ -4,16 +4,24 @@ let make = (~data, ~primaryColor, ~textColor) =>
     <Bio name={data |> Data.name} links={data |> Data.socialLinks} primaryColor />
     {switch data |> Data.products {
     | Some(products) =>
-      <Section color="bg-white" title="Products" textColor>
-        <ShowProducts products primaryColor />
-      </Section>
+      ReactUtils.nullIf(
+        <Section color="bg-white" title="Products" textColor>
+          <ShowProducts products primaryColor />
+        </Section>,
+        ArrayUtils.isEmpty(products),
+      )
+
     | None => React.null
     }}
     {switch data |> Data.repositories {
     | Some(repositories) =>
-      <Section color="bg-gray-100" title="Recent Projects" textColor>
-        <ShowRepositories repositories textColor />
-      </Section>
+      ReactUtils.nullIf(
+        <Section color="bg-gray-100" title="Recent Projects" textColor>
+          <ShowRepositories repositories textColor />
+        </Section>,
+        ArrayUtils.isEmpty(repositories),
+      )
+
     | None => React.null
     }}
     {switch data |> Data.devToUserId {
