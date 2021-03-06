@@ -143,7 +143,7 @@ let make = () => {
         <div> {str("Preview of website")} </div> {actionButtons(state, send, "flex -mr-2")}
       </div>
       <div className="shadow"> <Root data=state.data /> </div>
-      <div className="mt-4 flex justify-center items-center">
+      <div className="mt-4 flex justify-center items-center md:pb-0 pb-4">
         <a
           href="https://github.com/bodhish/mytemplate.xyz"
           target="blank"

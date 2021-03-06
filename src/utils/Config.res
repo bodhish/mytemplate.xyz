@@ -1,6 +1,5 @@
 let htmlHead = name =>
-  `
-<!DOCTYPE html>
+  `<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -11,11 +10,10 @@ let htmlHead = name =>
   </head>
   <body>
     <script type="application/json" id="my-template-data">
-
 `
 
 let htmlTail = `
-  </script>
+    </script>
     <div id="root"></div>
     <script src="https://cdn.jsdelivr.net/npm/mytemplate.xyz@0.4.1/build/Index.js"></script>
   </body>

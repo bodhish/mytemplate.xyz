@@ -55,7 +55,7 @@ let colorPicker = (data, updateDataCB) => {
 @react.component
 let make = (~data: Data.t, ~updateDataCB) => {
   <div className="mt-4">
-    {str("Edit the settings to customize")}
+    {str("Edit settings to customize")}
     <div className="mt-2">
       <label htmlFor="name" className="inline-block tracking-wide text-xs font-semibold">
         {str("Name")}
@@ -73,7 +73,7 @@ let make = (~data: Data.t, ~updateDataCB) => {
       <label htmlFor="color" className="inline-block tracking-wide text-xs font-semibold">
         {str("Primary Color")}
       </label>
-      <div className="flex flex-wrap "> {colorPicker(data, updateDataCB)} </div>
+      <div className="flex flex-wrap justify-around"> {colorPicker(data, updateDataCB)} </div>
     </div>
     <div className="mt-2">
       <label className="inline-block tracking-wide text-xs font-semibold">
