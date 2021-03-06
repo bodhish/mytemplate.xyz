@@ -2,20 +2,24 @@ let logo: string = %raw("require('./assets/logo-croped.png')")
 
 let str = React.string
 
+type view = Editor | ImportConfig | Docs
 type state = {
   data: Data.t,
-  showTemplateEditor: bool,
+  view: view,
 }
 
 type action =
-  | SetShowTemplateEditor
-  | ClearTemplateEditor
+  | SetEditor
+  | SetImportConfig
+  | SetDocs
   | UpdateData(Data.t)
 
 let reducer = (state, action) =>
   switch action {
-  | SetShowTemplateEditor => {...state, showTemplateEditor: true}
-  | ClearTemplateEditor => {...state, showTemplateEditor: false}
+  | SetEditor => {...state, view: Editor}
+  | SetImportConfig => {...state, view: ImportConfig}
+  | SetDocs => {...state, view: Docs}
+
   | UpdateData(data) => {
       Dom.Storage2.setItem(
         Dom.Storage2.localStorage,
@@ -48,7 +52,7 @@ let download = data => {
   Download.downloadFile(Config.data(data.name, json))
 }
 
-let initialState = () => {data: getData(), showTemplateEditor: false}
+let initialState = () => {data: getData(), view: Editor}
 
 let editProducts = (products, data, send) =>
   <div>
@@ -88,17 +92,40 @@ let make = () => {
           <h1 className="hidden"> {str("mytemplate.xyz")} </h1>
           <img className="h-10" src={logo} />
           <p className="text-sm font-mono mt-1"> {str("A no-code template for developer site")} </p>
-          <Editors data=state.data updateDataCB={data => send(UpdateData(data))} />
+          {switch state.view {
+          | Editor => <Editors data=state.data updateDataCB={data => send(UpdateData(data))} />
+          | ImportConfig =>
+            <ImportData
+              updateDataCB={data => {
+                send(UpdateData(data))
+                send(SetEditor)
+              }}
+              cancelCB={_ => send(SetEditor)}
+            />
+          | Docs => <div> {"doc"->str} </div>
+          }}
         </div>
-        <div className="mt-6 py-4 mr-2">
-          <button className="btn btn-large btn-success w-full" onClick={_ => download(state.data)}>
-            <i className="fas fa-download mr-2 " /> <span> {str("Download Site")} </span>
-          </button>
-        </div>
+        {switch state.view {
+        | Editor =>
+          <div className="mt-6 py-4 mr-2">
+            <button
+              className="btn btn-large btn-success w-full" onClick={_ => download(state.data)}>
+              <i className="fas fa-download mr-2 " /> <span> {str("Download Site")} </span>
+            </button>
+          </div>
+        | ImportConfig
+        | Docs => React.null
+        }}
       </nav>
     </div>
     <main className="col-span-9 mb-6">
-      <div className="py-2 px-4 md:px-0"> {str("Preview of website")} </div>
+      <div className="py-2 px-4 md:px-0 flex justify-between">
+        <div> {str("Preview of website")} </div>
+        <div>
+          <div className="btn " onClick={_ => send(SetImportConfig)}> {str("Import")} </div>
+          <div className="btn " onClick={_ => send(SetEditor)}> {str("Editor")} </div>
+        </div>
+      </div>
       <div className="shadow"> <Root data=state.data /> </div>
       <div className="mt-4 flex justify-center items-center">
         <a
