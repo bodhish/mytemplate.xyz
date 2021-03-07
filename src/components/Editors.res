@@ -24,12 +24,6 @@ let editProducts = (products, data, updateDataCB) =>
       />
     })
     |> React.array}
-    <button
-      onClick={_ => updateDataCB(Data.updateProducts(data, Some(Product.addEmpty(products))))}
-      className="mt-2 flex items-center text-sm font-semibold bg-gray-200 rounded border border-dashed border-gray-600 w-full hover:text-primary-500 hover:bg-white hover:border-primary-500 hover:shadow-md focus:outline-none">
-      <span className="bg-gray-300 py-2 w-10"> <i className="fas fa-plus text-sm" /> </span>
-      <span className="px-3 py-2"> {str("Add a new product")} </span>
-    </button>
   </div>
 
 let updateName = (data, updateDataCB, e) => {
@@ -92,6 +86,18 @@ let make = (~data: Data.t, ~updateDataCB) => {
       | Some(products) => editProducts(products, data, updateDataCB)
       | None => React.null
       }}
+      <button
+        onClick={_ =>
+          updateDataCB(
+            Data.updateProducts(
+              data,
+              Some(Product.addEmpty(Belt_Option.getWithDefault(data.products, []))),
+            ),
+          )}
+        className="mt-2 flex items-center text-sm font-semibold bg-gray-200 rounded border border-dashed border-gray-600 w-full hover:text-primary-500 hover:bg-white hover:border-primary-500 hover:shadow-md focus:outline-none">
+        <span className="bg-gray-300 py-2 w-10"> <i className="fas fa-plus text-sm" /> </span>
+        <span className="px-3 py-2"> {str("Add a new product")} </span>
+      </button>
     </div>
     <div className="mt-2">
       <label className="inline-block tracking-wide text-xs font-semibold">
