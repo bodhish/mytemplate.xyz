@@ -71,7 +71,7 @@ let make = (~data: Data.t, ~updateDataCB) => {
     </div>
     <div className="mt-2">
       <label className="inline-block tracking-wide text-xs font-semibold">
-        {str("Soical Links")}
+        {str("Social Links")}
       </label>
       <LinksEditor
         links={data.socialLinks}

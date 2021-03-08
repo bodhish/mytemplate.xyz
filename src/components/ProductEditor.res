@@ -59,7 +59,7 @@ let productEditor = (key, product, updateProductCB) =>
       <label
         className="inline-block tracking-wide text-xs font-semibold"
         htmlFor={"Links" ++ string_of_int(key)}>
-        {str("Soical Links")}
+        {str("Social Links")}
       </label>
       <LinksEditor
         links={Product.links(product)}
