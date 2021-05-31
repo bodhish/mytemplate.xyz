@@ -33,6 +33,8 @@ let make = url => {
   | url when url |> test("npm") => ("fab fa-npm", "npm")
   | url when url |> test("medium") => ("fab fa-medium", "Medium")
   | url when url |> test("dev.to") => ("fab fa-dev", "Dev")
+  | url when url |> test("dribbble") => ("fab fa-dribbble", "Dribbble")
+  | url when url |> test("behance") => ("fab fa-behance", "Behance")
   | unknownUrl => ("fas fa-external-link-square-alt", unknownUrl)
   }
 
