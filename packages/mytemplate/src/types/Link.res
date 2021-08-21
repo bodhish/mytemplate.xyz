@@ -35,6 +35,7 @@ let make = url => {
   | url when url |> test("dev.to") => ("fab fa-dev", "Dev")
   | url when url |> test("dribbble") => ("fab fa-dribbble", "Dribbble")
   | url when url |> test("behance") => ("fab fa-behance", "Behance")
+  | url when url |> test("product") => ("fab product-hunt", "Product Hunt")
   | unknownUrl => ("fas fa-external-link-square-alt", unknownUrl)
   }
 
