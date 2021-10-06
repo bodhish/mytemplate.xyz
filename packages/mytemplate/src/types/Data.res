@@ -25,7 +25,7 @@ let decode = json => {
   open Json.Decode
   {
     name: json |> field("name", string),
-    about: json |> field("about", optional(string)),
+    about: json |> optional(field("about", string)),
     socialLinks: json |> field("socialLinks", Link.decodeArray),
     products: json |> optional(field("products", array(Product.decode))),
     repositories: json |> optional(field("repositories", array(string))),

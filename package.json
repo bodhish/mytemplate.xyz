@@ -19,21 +19,21 @@
     "node": ">=8"
   },
   "dependencies": {
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "reason-react": "^0.9.1",
+    "@fortawesome/fontawesome-free": "^5.13.0",
     "@glennsl/bs-json": "^5.0.2",
     "bs-fetch": "^0.6.2",
     "bs-webapi": "^0.19.1",
-    "@fortawesome/fontawesome-free": "^5.13.0"
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "reason-react": "^0.9.1"
   },
   "devDependencies": {
     "autoprefixer": "^10.2.4",
-    "postcss": "^8.2.7",
-    "lerna": "^4.0.0",
     "bs-platform": "8.4.2",
     "css-loader": "^5.0.1",
     "html-webpack-plugin": "^4.5.1",
+    "lerna": "^4.0.0",
+    "postcss": "^8.2.7",
     "postcss-flexbugs-fixes": "^5.0.2",
     "postcss-import": "^14.0.0",
     "postcss-loader": "^4.1.0",
