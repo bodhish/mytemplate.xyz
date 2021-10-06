@@ -31,6 +31,11 @@ let updateName = (data, updateDataCB, e) => {
   updateDataCB(Data.updateName(data, value))
 }
 
+let updateAbout = (data, updateDataCB, e) => {
+  let value = ReactEvent.Form.target(e)["value"]->StringUtils.makeOption
+  updateDataCB(Data.updateAbout(data, value))
+}
+
 let colorPicker = (data, updateDataCB) => {
   Js.Array.map(
     color =>
@@ -61,6 +66,19 @@ let make = (~data: Data.t, ~updateDataCB) => {
         value=data.name
         onChange={updateName(data, updateDataCB)}
         placeholder="Enter your name"
+      />
+    </div>
+    <div className="mt-2">
+      <label htmlFor="name" className="inline-block tracking-wide text-xs font-semibold">
+        {str("About")}
+      </label>
+      <input
+        type_="text"
+        className="appearance-none h-12 mt-1 block w-full border border-gray-400 rounded py-2 px-4 text-sm bg-gray-100 hover:bg-gray-200 focus:outline-none focus:bg-white focus:border-primary-400"
+        id="about"
+        value={Belt.Option.getWithDefault(data.about, "")}
+        onChange={updateAbout(data, updateDataCB)}
+        placeholder="A short tagline"
       />
     </div>
     <div className="mt-2">

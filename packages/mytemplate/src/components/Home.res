@@ -1,7 +1,12 @@
 @react.component
 let make = (~data, ~primaryColor, ~textColor) =>
   <div>
-    <Bio name={data |> Data.name} links={data |> Data.socialLinks} primaryColor />
+    <Bio
+      name={data |> Data.name}
+      about={Data.about(data)}
+      links={data |> Data.socialLinks}
+      primaryColor
+    />
     {switch data |> Data.products {
     | Some(products) =>
       ReactUtils.nullIf(
