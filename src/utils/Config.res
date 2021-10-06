@@ -15,7 +15,7 @@ let htmlHead = name =>
 let htmlTail = `
     </script>
     <div id="root"></div>
-    <script src="https://cdn.jsdelivr.net/npm/mytemplate.xyz@0.4.1/build/Index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mytemplate.xyz@0.5.0/build/Index.js"></script>
   </body>
 </html>
 `
