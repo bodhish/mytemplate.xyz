@@ -143,6 +143,18 @@ let make = () => {
         <div> {str("Preview of website")} </div> {actionButtons(state, send, "flex -mr-2")}
       </div>
       <div className="shadow"> <Root data=state.data /> </div>
+      <div className="flex justify-center mt-4">
+        <a
+          href="https://www.producthunt.com/posts/mytemplate?utm_source=badge-top-post-badge&utm_medium=badge&utm_souce=badge-mytemplate"
+          target="_blank">
+          <img
+            src="https://api.producthunt.com/widgets/embed-image/v1/top-post-badge.svg?post_id=287220&theme=light&period=daily"
+            alt="MyTemplate - A no-code personal website builder for developers | Product Hunt"
+            width="250"
+            height="54"
+          />
+        </a>
+      </div>
       <div className="mt-4 flex justify-center items-center md:pb-0 pb-4">
         <a
           href="https://github.com/bodhish/mytemplate.xyz"
