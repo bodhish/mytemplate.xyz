@@ -6,9 +6,11 @@ let make = (~products, ~primaryColor) =>
     {products
     |> Js.Array.mapi((product, i) =>
       <div key={string_of_int(i)} className="max-w-lg p-4 w-full">
-        <div className="overflow-hidden rounded-lg shadow-lg h-full">
+        <div className="flex flex-col justify-between overflow-hidden rounded-lg shadow-lg h-full">
           {Product.image(product)->Belt.Option.mapWithDefault(React.null, src =>
-            <img className=" " src alt={product |> Product.title} />
+            <div className="aspect-w-5 aspect-h-3">
+              <img className=" " src alt={product |> Product.title} />
+            </div>
           )}
           <div className="px-6 py-4">
             <div className="font-bold text-xl mb-2"> {product |> Product.title |> str} </div>

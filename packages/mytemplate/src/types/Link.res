@@ -36,6 +36,8 @@ let make = url => {
   | url when url |> test("dribbble") => ("fab fa-dribbble", "Dribbble")
   | url when url |> test("behance") => ("fab fa-behance", "Behance")
   | url when url |> test("product") => ("fab product-hunt", "Product Hunt")
+  | url when url |> test("coronasafe") => ("fab fa-osi", "Care")
+  | url when url |> test("drive.google.com") => ("fas fa-file-pdf", "Resume")
   | unknownUrl => ("fas fa-external-link-square-alt", unknownUrl)
   }
 
