@@ -1,7 +1,12 @@
 module.exports = {
   theme: {},
+  corePlugins: {
+    aspectRatio: false,
+  },
   variants: {},
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/aspect-ratio'),
+  ],
   purge: {
     content: [
       "./src/**/*.html",
