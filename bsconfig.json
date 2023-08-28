@@ -13,20 +13,19 @@
       "subdirs": true
     }
   ],
-  "bsc-flags": ["-bs-super-errors", "-bs-no-version-header"],
   "package-specs": [
     {
-      "module": "commonjs",
+      "module": "es6",
       "in-source": true
     }
   ],
   "suffix": ".bs.js",
   "namespace": true,
   "bs-dependencies": [
-    "reason-react",
+    "@rescript/react",
+    "bs-fetch",
     "@glennsl/bs-json",
-    "bs-webapi",
-    "bs-fetch"
+    "rescript-webapi"
   ],
   "refmt": 3
 }

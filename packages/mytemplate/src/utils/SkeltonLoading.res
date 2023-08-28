@@ -1,4 +1,4 @@
-%bs.raw(`require("./SkeletonLoading.css")`)
+%%raw(`import "./SkeletonLoading.css"`)
 
 let card = () =>
   <div className="skeleton-body-container pt-4 px-2 w-full mx-auto">

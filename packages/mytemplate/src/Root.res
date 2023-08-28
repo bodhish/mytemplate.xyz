@@ -24,7 +24,7 @@ let showBlog = (data, primaryColor, textColor) =>
 
 @react.component
 let make = (~data) => {
-  let url = ReasonReactRouter.useUrl()
+  let url = RescriptReactRouter.useUrl()
   let primaryColor = data |> Data.primaryColor
   let textColor = "text-" ++ (primaryColor ++ "-900")
   <div>

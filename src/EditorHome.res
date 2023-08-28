@@ -1,4 +1,4 @@
-let logo: string = %raw("require('./assets/logo-croped.png')")
+@module("./assets/logo-croped.png") external logo: string = "default"
 
 let str = React.string
 

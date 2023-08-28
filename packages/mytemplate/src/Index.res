@@ -1,8 +1,15 @@
-%bs.raw(`require("./tailwind.css")`)
-%bs.raw(`require("@fortawesome/fontawesome-free/js/all.js")`)
+%%raw(`import "./tailwind.css"`)
+%%raw(`import "@fortawesome/fontawesome-free/js/all.js"`)
 
 type props = {data: Data.t}
 
-let data = DomUtils.parseJsonTag(~id="my-template-data", ()) |> Data.decode
+let data = DomUtils.parseJSONTag(~id="my-template-data", ()) |> Data.decode
 
-ReactDOMRe.renderToElementWithId(<Root data />, "root")
+switch ReactDOM.querySelector("#root") {
+| Some(rootElement) =>
+  ReactDOM.Client.Root.render(
+    ReactDOM.Client.createRoot(rootElement),
+        <Root data/>
+  )
+| None => Js.Console.log("Could not find the main div")
+}

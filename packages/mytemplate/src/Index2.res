@@ -1,5 +1,5 @@
-%bs.raw(`require("./tailwind.css")`)
-%bs.raw(`require("@fortawesome/fontawesome-free/js/all.js")`)
+%%raw(`import "./tailwind.css"`)
+%%raw(`import "@fortawesome/fontawesome-free/js/all.js"`)
 
 let str = React.string
 
@@ -34,12 +34,12 @@ module Root = {
   let findData = initalData => {
     switch initalData {
     | Some(d) => d
-    | None => DomUtils.parseJsonTag(~id="my-template-data", ()) |> Data.decode
+    | None => DomUtils.parseJSONTag(~id="my-template-data", ()) |> Data.decode
     }
   }
   @react.component
   let make = (~initalData=?) => {
-    let url = ReasonReactRouter.useUrl()
+    let url = RescriptReactRouter.useUrl()
     let data = findData(initalData)
     <div>
       {switch url.path {
@@ -50,4 +50,11 @@ module Root = {
   }
 }
 
-ReactDOMRe.renderToElementWithId(<Root />, "root")
+switch ReactDOM.querySelector("#root") {
+| Some(rootElement) =>
+  ReactDOM.Client.Root.render(
+    ReactDOM.Client.createRoot(rootElement),
+        <Root />
+  )
+| None => Js.Console.log("Could not find the main div")
+}
