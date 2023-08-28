@@ -1,9 +1,0 @@
-36 error Error: Command failed with exit code 1: git commit -F /tmp/77a245ad-86be-4049-825e-ac8477678628/lerna-commit.txt
-36 error On branch master
-36 error Your branch is up to date with 'origin/master'.
-36 error
-36 error nothing to commit, working tree clean
-36 error     at makeError (/home/bodhi/code/mytemplate.xyz/node_modules/execa/lib/error.js:59:11)
-36 error     at handlePromise (/home/bodhi/code/mytemplate.xyz/node_modules/execa/index.js:114:26)
-36 error     at processTicksAndRejections (internal/process/task_queues.js:97:5)
-36 error     at async Promise.all (index 0)
