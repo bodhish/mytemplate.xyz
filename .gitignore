@@ -1,7 +1,7 @@
 /lib/bs/
 /node_modules/
 /bundleOutput/
-/build
+/build/*
 
 # Ignore these associated with reason-react and bsb
 .merlin
