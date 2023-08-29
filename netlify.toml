@@ -1,7 +1,7 @@
 [build]
   base    = ""
   publish = "dist"
-  command = "yarn i && yarn run re:build && yarn run build"
+  command = "yarn && yarn run re:build && yarn run build"
 
 [[redirects]]
   from = "/*"
