@@ -1,7 +1,7 @@
 [build]
   base    = ""
-  publish = "build"
-  command = "npm i && npm run clean && npm run build && npm run webpack:production"
+  publish = "dist"
+  command = "yarn i && yarn run re:build && yarn run build"
 
 [[redirects]]
   from = "/*"
