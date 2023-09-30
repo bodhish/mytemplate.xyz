@@ -15,27 +15,41 @@ let getRepos = (repositoryName, setState, ()) => {
   None
 }
 
-let showRepo = (repo, textColor) =>
+let showRepo = (repo, textColor) => {
+  Js.log(repo)
   <div className="max-w-lg p-4 w-full">
     <div
-      className="overflow-hidden rounded-lg shadow-lg h-full bg-white flex flex-col justify-between">
-      <div className="py-4 px-6 bg-white shadow">
-        <a
-          href={"http://github.com/" ++ (repo |> Repo.name)}
-          target="blank"
-          className={"hover:" ++ textColor}>
-          <i className="fab fa-github mr-2 font-bold text-xl" />
-          <span className="font-bold text-xl"> {repo |> Repo.name |> str} </span>
-        </a>
-        <div className="flex text-gray-700  mt-2">
-          <div className="mr-4">
+      className="overflow-hidden rounded-xl shadow-xl bg-gray-50 h-full flex flex-col justify-between">
+      <div className="pt-4 px-6">
+        <div className="flex items-center">
+          <div className="bg-white rounded flex items-center justify-center p-2">
+            <img src={Repo.avatarUrl(repo)} className="w-10 h-10" />
+          </div>
+          <div className="flex flex-col justify-end items-start space-y-0 px-3">
+            <div className="font-light -mb-2 text-xl"> {str(Repo.ownerLogin(repo))} </div>
+            <div className="font-bold text-2xl"> {str(Repo.name(repo))} </div>
+          </div>
+        </div>
+        <div className="flex items-center text-gray-700 mt-2 space-x-2 ">
+          <div className="rounded-xl bg-white px-3 py-1 flex items-center">
             <i className="fas fa-star mr-2" />
-            <span> {repo |> Repo.stars |> string_of_int |> str} </span>
+            <span className="font-semibold mr-1"> {str(string_of_int(Repo.stars(repo)))} </span>
+            <span> {str("Stars")} </span>
           </div>
-          <div>
+          <div className="rounded-xl bg-white px-3 py-1 flex items-center">
             <i className="fas fa-code-branch mr-2" />
-            <span> {repo |> Repo.forks |> string_of_int |> str} </span>
+            <span className="font-semibold mr-1"> {str(string_of_int(Repo.stars(repo)))} </span>
+            <span> {str("Stars")} </span>
           </div>
+          <a
+            href={Repo.htmlurl(repo)}
+            target="blank"
+            className={"rounded-xl bg-white px-3 py-1 flex items-center"}>
+            <div className="flex items-center">
+              <i className="fab fa-github mr-2" />
+              <span> {str("View on GitHub")} </span>
+            </div>
+          </a>
         </div>
       </div>
       <div className=" ">
@@ -56,9 +70,12 @@ let showRepo = (repo, textColor) =>
             : React.null
         )}
       </div>
-      <div className="px-4 pb-4"> <ShowRepoLanguages url={repo |> Repo.languagesUrl} /> </div>
+      <div className="px-4 pb-6">
+        <ShowRepoLanguages url={repo |> Repo.languagesUrl} />
+      </div>
     </div>
   </div>
+}
 
 @react.component
 let make = (~repositoryName, ~textColor) => {
