@@ -34,22 +34,20 @@ let showRepo = (repo, textColor) => {
           <div className="rounded-xl bg-white px-3 py-1 flex items-center">
             <i className="fas fa-star mr-2" />
             <span className="font-semibold mr-1"> {str(string_of_int(Repo.stars(repo)))} </span>
-            <span> {str("Stars")} </span>
+            <span className="hidden md:block"> {str("Stars")} </span>
           </div>
           <div className="rounded-xl bg-white px-3 py-1 flex items-center">
             <i className="fas fa-code-branch mr-2" />
             <span className="font-semibold mr-1"> {str(string_of_int(Repo.stars(repo)))} </span>
-            <span> {str("Stars")} </span>
+            <span className="hidden md:block"> {str("Forks")} </span>
           </div>
-          <a
-            href={Repo.htmlurl(repo)}
-            target="blank"
-            className={"rounded-xl bg-white px-3 py-1 flex items-center"}>
-            <div className="flex items-center">
+          <div className="flex items-center rounded-xl bg-white px-3 py-1">
+            <a href={Repo.htmlurl(repo)} target="blank" className={"flex items-center "}>
               <i className="fab fa-github mr-2" />
-              <span> {str("View on GitHub")} </span>
-            </div>
-          </a>
+              <span className="hidden md:block mr-1"> {str("View on")} </span>
+              <span> {str("GitHub")} </span>
+            </a>
+          </div>
         </div>
       </div>
       <div className=" ">
