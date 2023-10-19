@@ -60,7 +60,8 @@ let showBlogs = (blogs, showAll, primaryColor) =>
               <div className="font-bold text-xl break-all"> {blog |> Blog.title |> str} </div>
               <p className="text-gray-700 text-base mt-2"> {blog |> Blog.description |> str} </p>
               <div className="text-gray-700 text-base mt-1">
-                <i className="fas fa-history mr-4" /> <span> {blog |> Blog.date |> str} </span>
+                <i className="fas fa-history mr-4" />
+                <span> {blog |> Blog.date |> str} </span>
               </div>
             </div>
             <div className="px-6 pt-4 pb-4">
@@ -79,7 +80,7 @@ let showBlogs = (blogs, showAll, primaryColor) =>
         ? React.null
         : <a
             href="./blog"
-            className={"btn text-white button-xl mx-auto bg-white border text-" ++
+            className={"btn button-xl mx-auto bg-white border text-" ++
             (primaryColor ++
             ("-900 border-" ++ (primaryColor ++ "-900")))}>
             {"Show More" |> str}
@@ -89,15 +90,21 @@ let showBlogs = (blogs, showAll, primaryColor) =>
 
 @react.component
 let make = (~devToUserId, ~primaryColor, ~showAll=false) => {
-  let (state, setState) = React.useState(() => {data: Loading, showAll: showAll})
+  let (state, setState) = React.useState(() => {data: Loading, showAll})
 
   React.useEffect1(getBlogs(devToUserId, setState), [devToUserId])
 
   switch state.data {
   | Loading =>
     <div className="mx-auto max-w-5xl ">
-      <div className="flex justify-between"> {SkeltonLoading.card()} {SkeltonLoading.card()} </div>
-      <div className="flex justify-between"> {SkeltonLoading.card()} {SkeltonLoading.card()} </div>
+      <div className="flex justify-between">
+        {SkeltonLoading.card()}
+        {SkeltonLoading.card()}
+      </div>
+      <div className="flex justify-between">
+        {SkeltonLoading.card()}
+        {SkeltonLoading.card()}
+      </div>
     </div>
   | Loaded(blogs) => showBlogs(blogs, showAll, primaryColor)
   }
