@@ -1,32 +1,63 @@
-# RE-Tailwind
+# No-Code Developer Website Builder
 
-## Run Project
+[MyTemplate.xyz](myTemplate.xyz) is a no-code website builder designed specifically for developers. Leveraging the power of ReScript and TailwindCSS, it simplifies the process of creating and updating personal websites. By integrating with platforms like Dev.to and GitHub, it offers a seamless experience for showcasing blogs and projects.
+
+## Why?
+
+- **Time-Saving**: Updating personal websites can be time-consuming. MyTemplate.xyz offers a streamlined process to manage your website efficiently.
+- **Integration**: Display your blogs from Dev.to and projects directly from GitHub.
+- **Ease of Use**: A user-friendly editor makes website management straightforward.
+
+## Hosting Your Site
+
+### GitHub Pages
+
+1. Edit your site and click the 'Download' button.
+2. Commit the downloaded 'index.html' to your GitHub repository.
+3. In GitHub settings, enable 'GitHub Pages'.
+4. Set the source to your 'main' branch and the folder to root.
+5. Commit the '\_redirects' file to your repo.
+6. Your site will be live shortly. [Watch Video](https://vimeo.com/520421685)
+
+### Netlify
+
+1. After editing, click the 'Download' button.
+2. Commit the 'index.html' file to your GitHub repository.
+3. On Netlify, select 'New site from Git'.
+4. Choose your GitHub repository and click 'Deploy site'.
+5. Add 'netlify.toml' to your repo for blog integration. [Learn More](#)
+
+## Importing Your Site
+
+1. Click 'Import' on the top right of this page.
+2. Enter your GitHub repository in the required format.
+3. Press the check icon on the import tab.
+4. After import, click 'Open in Editor' to finalize. [Watch Video](#)
+
+## Technology Stack
+
+- **Frontend**: React (ReScript)
+- **Styling**: TailwindCSS
+
+## Support and Contributions
+
+- **Bug Reports**: Please create an issue with bug details.
+- **Feature Requests**: Suggestions are welcome. Create an issue in the with your ideas.
+
+## Examples
+
+- [bodhish.in](bodhish.in)
+- [gigin.dev](gigin.dev)
+
+> send a PR to add your site here
+
+# Run the project
 
 ```sh
-npm install
-npm start
-# in another tab
-npm run webpack
+yarn install
+yarn dev
 ```
 
-After you see the webpack compilation succeed (the `npm run webpack` step), open up `build/index.html` (**no server needed!**). Then modify whichever `.re` file in `src` and refresh the page to see the changes.
+You may need to run `yarn run re:watch` in a separate terminal to watch for changes in the `src` directory.
 
-## Run Project with Server
-
-To run with the webpack development server run `npm run server` and view in the browser at http://localhost:8000. Running in this environment provides hot reloading and support for routing; just edit and save the file and the browser will automatically refresh.
-
-Note that any hot reload on a route will fall back to the root (`/`), so `ReasonReact.Router.dangerouslyGetInitialUrl` will likely be needed alongside the `ReasonReact.Router.watchUrl` logic to handle routing correctly on hot reload refreshes or simply opening the app at a URL that is not the root.
-
-To use a port other than 8000 set the `PORT` environment variable (`PORT=8080 npm run server`)
-
-## gitignore
-
-rename `gitignore` to `.gitignore`
-
-## Build for Production
-
-```sh
-npm run clean
-npm run build
-npm run webpack:production
-```
+The project is written in [ReScript](https://rescript-lang.org/)
