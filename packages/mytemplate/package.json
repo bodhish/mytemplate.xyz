@@ -1,6 +1,6 @@
 {
   "name": "mytemplate.xyz",
-  "version": "0.6.1",
+  "version": "0.6.2",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
