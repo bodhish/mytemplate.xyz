@@ -1,7 +1,7 @@
 let str = React.string
 
 let navBar = (data, textColor) =>
-  <div className="bg-white my-4 sticky top-0">
+  <div className="border-b bg-gray-100 my-4 sticky top-0">
     <div className="flex text-white max-w-5xl mx-auto justify-between px-2 items-center py-4">
       <a className={"text-2xl font-black md:text-4xl " ++ textColor} href="./">
         {data |> Data.name |> str}
@@ -15,7 +15,7 @@ let showBlog = (data, primaryColor, textColor) =>
     {navBar(data, textColor)}
     {switch data |> Data.devToUserId {
     | Some(devToUserId) =>
-      <Section color="bg-white" title="Blogs" textColor>
+      <Section color={primaryColor} title="Blogs">
         <DevToBlogs devToUserId showAll=true primaryColor />
       </Section>
     | None => React.null

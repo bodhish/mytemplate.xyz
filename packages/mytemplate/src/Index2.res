@@ -10,7 +10,7 @@ let textColor = data => "text-" ++ Data.primaryColor(data) ++ "-900"
 
 module Root = {
   let navBar = data =>
-    <div className="bg-white my-4 sticky top-0">
+    <div className=" my-4 sticky top-0">
       <div className="flex text-white max-w-5xl mx-auto justify-between px-2 items-center py-4">
         <a className={"text-2xl font-black md:text-4xl " ++ textColor(data)} href="./">
           {data |> Data.name |> str}
@@ -24,7 +24,7 @@ module Root = {
       {navBar(data)}
       {switch data |> Data.devToUserId {
       | Some(devToUserId) =>
-        <Section color="bg-white" title="Blogs" textColor={textColor(data)}>
+        <Section color={primaryColor(data)} title="Blogs">
           <DevToBlogs devToUserId showAll=true primaryColor={primaryColor(data)} />
         </Section>
       | None => React.null
@@ -52,9 +52,6 @@ module Root = {
 
 switch ReactDOM.querySelector("#root") {
 | Some(rootElement) =>
-  ReactDOM.Client.Root.render(
-    ReactDOM.Client.createRoot(rootElement),
-        <Root />
-  )
+  ReactDOM.Client.Root.render(ReactDOM.Client.createRoot(rootElement), <Root />)
 | None => Js.Console.log("Could not find the main div")
 }

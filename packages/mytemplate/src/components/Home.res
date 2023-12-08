@@ -1,5 +1,5 @@
 @react.component
-let make = (~data, ~primaryColor, ~textColor) =>
+let make = (~data, ~primaryColor, ~textColor) => {
   <div>
     <Bio
       name={data |> Data.name}
@@ -10,7 +10,7 @@ let make = (~data, ~primaryColor, ~textColor) =>
     {switch data |> Data.products {
     | Some(products) =>
       ReactUtils.nullIf(
-        <Section color="bg-white" title="Products" textColor>
+        <Section title="Products" color={primaryColor}>
           <ShowProducts products primaryColor />
         </Section>,
         ArrayUtils.isEmpty(products),
@@ -21,7 +21,7 @@ let make = (~data, ~primaryColor, ~textColor) =>
     {switch data |> Data.repositories {
     | Some(repositories) =>
       ReactUtils.nullIf(
-        <Section color="bg-gray-100" title="Recent Projects" textColor>
+        <Section color={primaryColor} title="Recent Projects">
           <ShowRepositories repositories textColor />
         </Section>,
         ArrayUtils.isEmpty(repositories),
@@ -31,9 +31,10 @@ let make = (~data, ~primaryColor, ~textColor) =>
     }}
     {switch data |> Data.devToUserId {
     | Some(devToUserId) =>
-      <Section color="bg-white" title="Blogs" textColor>
+      <Section color={primaryColor} title="Blogs">
         <DevToBlogs devToUserId primaryColor />
       </Section>
     | None => React.null
     }}
   </div>
+}

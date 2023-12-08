@@ -1,12 +1,16 @@
 let str = React.string
 
+// text-transparent bg-clip-text bg-gradient-to-b from-${primaryColor}-300 to-${primaryColor}-900
+
+let gradientClasses = color => `bg-gradient-to-r from-${color}-500 to-${color}-900 `
+
 @react.component
 let make = (~name, ~about, ~links, ~primaryColor) =>
   <div>
     <div
-      className={"bg-" ++
-      (primaryColor ++
-      "-900 flex flex-col h-screen justify-center items-center text-center")}>
+      className={gradientClasses(
+        primaryColor,
+      ) ++ "flex flex-col h-screen justify-center items-center text-center"}>
       <div>
         <h1
           className={"text-3xl md:text-5xl text-white flex items-center hover:text-" ++
