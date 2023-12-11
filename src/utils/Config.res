@@ -15,8 +15,8 @@ let htmlHead = name =>
 let htmlTail = `
     </script>
     <div id="root"></div>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mytemplate.xyz@0.6/build/index.css"/>
-    <script src="https://cdn.jsdelivr.net/npm/mytemplate.xyz@0.6/build/index.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mytemplate.xyz@0.7/build/index.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/mytemplate.xyz@0.7/build/index.js"></script>
   </body>
 </html>
 `
