@@ -41,7 +41,7 @@ let encode = t => {
     ("about", nullable(string, t.about)),
     ("socialLinks", array(string, Link.stringArray(t.socialLinks))),
     ("devToUserId", nullable(string, t.devToUserId)),
-    ("primaryColor", nullable(string, t.primaryColorString)),
+    ("primaryColor", string(primaryColor(t))),
     ("products", Product.encodeArray(Belt.Option.getWithDefault(t.products, []))),
     ("repositories", array(string, Belt.Option.getWithDefault(t.repositories, []))),
   })
